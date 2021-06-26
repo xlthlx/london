@@ -1,2 +1,2 @@
 # London
-WordPress Theme for piccioni.london
+piccioni.london WordPress theme

@@ -5,6 +5,7 @@
  * @package WordPress
  * @subpackage London
  */
+global $post;
 ?>
 <?php get_header(); ?>
 

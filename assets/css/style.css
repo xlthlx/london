@@ -52,7 +52,7 @@ h2 {
     box-shadow: none !important;
 }
 
-.navbar .dropdown-menu a {
+.navbar .dropdown-menu a, .navbar.navbar-dark .navbar-nav .nav-item .nav-link {
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -64,16 +64,6 @@ h2 {
 
 .navbar .dropdown-menu a:hover {
     color: #151618 !important;
-}
-
-.navbar.navbar-dark .navbar-nav .nav-item .nav-link {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    text-transform: uppercase;
-    line-height: 18px;
-    letter-spacing: 0.06em;
-    color: #cdcdcd;
 }
 
 .navbar.navbar-dark .navbar-nav .nav-item .nav-link:hover {
@@ -171,7 +161,7 @@ hr.dotted {
     display: none;
 }
 
-.prev {
+.prev, .next {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -186,30 +176,13 @@ hr.dotted {
     -webkit-user-select: none;
 }
 
-.prev:hover {
+.prev:hover, .next:hover {
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
 }
 
 .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -50px;
-    color: black;
-    font-weight: bold;
-    font-size: 20px;
-    transition: 0.6s ease;
-    user-select: none;
-    -webkit-user-select: none;
     right: 0;
-}
-
-.next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
 }
 
 #caption {
