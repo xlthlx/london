@@ -11,8 +11,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Senior Developer | Serena Piccioni</title>
-	<meta name="description" content="Serena Piccioni, Senior Developer"/>
+	<title><?php echo get_bloginfo( 'description' ); ?> | <?php echo get_bloginfo( 'name' ); ?></title>
+	<meta name="description" content="<?php echo wp_trim_words( get_the_content(), 20, '...' ); ?>"/>
 	<link rel='dns-prefetch' href='//www.googletagmanager.com' />
 	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/icons/icon-32.png" sizes="32x32"/>
 	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/icons/icon-192.png" sizes="192x192"/>
