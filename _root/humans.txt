@@ -1,0 +1,8 @@
+/* TEAM */
+  Name: xlthlx
+  Title: Developer
+  Site: https://piccioni.london
+
+/* SITE */                      
+  Standards: HTML5, CSS3, PHP                        
+  Components: jQuery, Bootstrap
