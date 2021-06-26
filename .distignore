@@ -34,3 +34,4 @@ tests
 *.sql
 *.tar.gz
 *.zip
+_root
