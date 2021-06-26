@@ -149,9 +149,7 @@ hr.dotted {
 }
 
 .accordion-button {
-    font-size: calc(1.3rem + 0.6vw);
-    font-weight: 500;
-    line-height: 1.2;
+    -webkit-appearance: unset;
     transition: none;
     color: #fff !important;
     background-color: #1a1b1e !important;
