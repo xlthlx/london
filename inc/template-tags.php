@@ -18,6 +18,7 @@ if ( ! function_exists( 'ln_get_jobs' ) ) {
 
 		$args = array(
 			'post_type' => 'job',
+			'nopaging'  => true,
 			'tax_query' => array(
 				array(
 					'taxonomy' => 'job_type',
@@ -38,7 +39,7 @@ if ( ! function_exists( 'ln_get_jobs' ) ) {
 				$the_query->the_post();
 
 				$post_id = get_the_ID();
-				$slug    = get_post_field( 'post_name', $post_id );
+				$slug    = sanitize_title( get_the_title() );
 				$index   = $the_query->current_post;
 
 				$results[ $index ]['ID']        = $post_id;
@@ -62,6 +63,14 @@ if ( ! function_exists( 'ln_get_jobs' ) ) {
 					$results[ $index ]['text_date'] = date( 'F Y', strtotime( get_post_meta( $post_id, 'work_fields_text_date', true ) ) );
 					$results[ $index ]['logo']      = get_post_meta( $post_id, 'work_fields_logo', true );
 					$results[ $index ]['images']    = get_post_meta( $post_id, 'work_fields_images', true );
+				}
+
+				if ( $type === 'themes-and-plugins' ) {
+					$results[ $index ]['wp_url']      = get_post_meta( $post_id, 'themes_fields_wp_url', true );
+					$results[ $index ]['down_url']    = get_post_meta( $post_id, 'themes_fields_down_url', true );
+					$results[ $index ]['github_url']  = get_post_meta( $post_id, 'themes_fields_github_url', true );
+					$results[ $index ]['logo']        = get_post_meta( $post_id, 'themes_fields_logo', true );
+					$results[ $index ]['description'] = get_post_meta( $post_id, 'themes_fields_description', true );
 				}
 
 				if ( ! empty( $results[ $index ]['images'] ) ) {

@@ -31,6 +31,11 @@ a {
     text-decoration: none;
 }
 
+b, strong {
+    font-weight: 900;
+    font-size: 1.2em;
+}
+
 .h1 {
     font-weight: 500;
     font-size: 46px;
@@ -106,7 +111,7 @@ hr.dotted {
 }
 
 .dark-grey-text {
-    color: #5f5d5d !important;
+    color: #6f6d6d !important;
 }
 
 .small-title {
@@ -237,8 +242,29 @@ hr.dotted {
     }
 }
 
-@media (min-width: 576px) {
-    .modal-dialog {
-        max-width: 800px !important;
-    }
+.btn-close {
+    background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat !important;
+}
+
+#inlineFramePdf {
+    border: none;
+    min-height: 700px;
+    height: 100%;
+    width: 100%;
+}
+
+#inlineFrameImg {
+    width: 100%;
+}
+
+.list-group-item {
+    border-bottom: 1px solid #535456 !important;
+}
+
+.modal-body {
+    padding: 0 !important;
+}
+
+.form-control {
+    border-radius: 0 !important;
 }

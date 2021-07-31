@@ -132,3 +132,27 @@ function setDataClick(item, index, arr) {
 		xhttp.send();
 	});
 }
+
+// data-bs-toggle="modal" data-bs-target="#containerModal"
+let containerModal = document.getElementById('containerModal')
+containerModal.addEventListener('show.bs.modal', function (event) {
+	let link = event.relatedTarget
+
+	let link_source = link.getAttribute('href')
+	let link_alt = link.getAttribute('title')
+	let pdf_src = link_source.includes(".pdf")
+
+	let modalBodyImg = containerModal.querySelector('#inlineFrameImg')
+	let modalBodyIframe = containerModal.querySelector('#inlineFramePdf')
+	if (pdf_src === true) {
+		modalBodyIframe.src = link_source
+		modalBodyIframe.title = link_alt
+		modalBodyIframe.style.display = "block"
+		modalBodyImg.style.display = "none"
+	} else {
+		modalBodyImg.src = link_source
+		modalBodyImg.alt = link_alt
+		modalBodyImg.style.display = "block"
+		modalBodyIframe.style.display = "none"
+	}
+})

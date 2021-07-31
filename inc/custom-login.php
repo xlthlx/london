@@ -89,13 +89,10 @@ add_action( 'login_head', 'london_login_head' );
  */
 function london_login_classes_footer() {
 	echo "<script>
-		        jQuery('#loginform').addClass('md-form');
-		        jQuery('#lostpasswordform').addClass('md-form');
-		        jQuery('#resetpassform').addClass('md-form');
-		        jQuery('#user_login').removeClass('input').addClass('form-control');
-		        jQuery('#user_pass').removeClass('input').addClass('form-control');
-		        jQuery('#wp-submit').removeClass('button button-primary button-large').addClass('btn btn-outline-grey waves-effect btn-sm');
-			</script>";
+	        jQuery('#user_login').removeClass('input').addClass('form-control');
+	        jQuery('#user_pass').removeClass('input').addClass('form-control');
+	        jQuery('#wp-submit').removeClass('button button-primary button-large').addClass('btn btn-outline-light btn-sm rounded-0');
+		</script>";
 }
 
 /**

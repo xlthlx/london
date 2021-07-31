@@ -36,8 +36,9 @@
 						<ul class="dropdown-menu" aria-labelledby="dropdown-link">
 							<li><a href="#skills-education" class="dropdown-item">Skills and education</a></li>
 							<li><a href="#work-experience" class="dropdown-item">Work experience</a></li>
-							<li><a href="#wordpress-works" class="dropdown-item">WordPress works</a></li>
+							<li><a href="#wordpress-jobs" class="dropdown-item">WordPress jobs</a></li>
 							<li><a href="#teaching-publications" class="dropdown-item">Teaching and publications</a></li>
+							<li><a href="#themes-and-plugins" class="dropdown-item">Themes and plugins</a></li>
 							<li><a href="#contacts" class="dropdown-item">Contacts</a></li>
 						</ul>
 					</li>

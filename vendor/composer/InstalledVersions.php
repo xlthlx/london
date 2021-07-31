@@ -14,12 +14,12 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '45b84d72922d4e57a629a8443ad5104403c6d0b2',
     'name' => 'piccioni/london',
   ),
   'versions' => 
@@ -53,12 +53,12 @@ private static $installed = array (
     ),
     'piccioni/london' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '45b84d72922d4e57a629a8443ad5104403c6d0b2',
     ),
     'roave/security-advisories' => 
     array (
@@ -68,7 +68,7 @@ private static $installed = array (
       array (
         0 => '9999999-dev',
       ),
-      'reference' => 'ba841897ca44f2ef8eff82d0edf3d6681f0e9875',
+      'reference' => '52a126190a36bc9236846f5d42e10bff9ff60d72',
     ),
     'roundcube/plugin-installer' => 
     array (

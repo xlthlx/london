@@ -10,8 +10,11 @@ require( str_replace( '/wp-content/themes/london/partial', '', __DIR__ ) . '/wp-
 
 $post_id            = filter_var( $_REQUEST['id'], FILTER_SANITIZE_NUMBER_INT );
 $images[ $post_id ] = get_post_meta( $post_id, 'job_fields_images', true );
+if ( empty( $images[ $post_id ] ) ) {
+	$images[ $post_id ] = get_post_meta( $post_id, 'work_fields_images', true );
+}
 ?>
-<div class="modal-dialog border-0 rounded-0">
+<div class="modal-dialog modal-lg border-0 rounded-0">
 	<div class="modal-content border-0 rounded-0">
 		<div class="modal-header border-0 rounded-0">
 			<div id="number" class="number-text">1/<?php echo count( $images[ $post_id ] ); ?></div>

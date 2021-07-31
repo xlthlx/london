@@ -156,6 +156,65 @@ function ln_register_work_fields() {
 
 add_action( 'cmb2_init', 'ln_register_work_fields' );
 
+
+function ln_register_themes_fields() {
+
+	$themes_fields = new_cmb2_box( array(
+		'id'           => 'themes_fields',
+		'title'        => 'Theme/Plugin details',
+		'object_types' => array( 'job' ),
+		'show_on'      => array(
+			'key'   => 'taxonomy',
+			'value' => array(
+				'job_type' => 'themes-and-plugins'
+			)
+		),
+		'context'      => 'normal',
+		'priority'     => 'high',
+		'show_in_rest' => WP_REST_Server::ALLMETHODS,
+	) );
+
+	$themes_fields->add_field( array(
+		'name'         => 'Logo',
+		'id'           => 'themes_fields_logo',
+		'type'         => 'file',
+		'text'         => array(
+			'add_upload_file_text' => 'Add logo',
+		),
+		'preview_size' => array( 100, 100 ),
+	) );
+
+	$themes_fields->add_field( array(
+		'name' => 'WordPress URL',
+		'id'   => 'themes_fields_wp_url',
+		'type' => 'text_url',
+	) );
+
+	$themes_fields->add_field( array(
+		'name' => 'Download URL',
+		'id'   => 'themes_fields_down_url',
+		'type' => 'text_url',
+	) );
+
+	$themes_fields->add_field( array(
+		'name' => 'GitHub URL',
+		'id'   => 'themes_fields_github_url',
+		'type' => 'text_url',
+	) );
+
+	$themes_fields->add_field( array(
+		'name'    => 'Description',
+		'id'      => 'themes_fields_description',
+		'type'    => 'wysiwyg',
+		'options' => array(
+			'textarea_rows' => 15,
+		),
+	) );
+
+}
+
+add_action( 'cmb2_init', 'ln_register_themes_fields' );
+
 function ln_register_home_fields() {
 
 	$home_fields = new_cmb2_box( array(
@@ -188,6 +247,15 @@ function ln_register_home_fields() {
 	$home_fields->add_field( array(
 		'name'    => 'Teaching and publications',
 		'id'      => 'home_fields_teach',
+		'type'    => 'wysiwyg',
+		'options' => array(
+			'textarea_rows' => 15,
+		),
+	) );
+
+	$home_fields->add_field( array(
+		'name'    => 'Themes and plugins',
+		'id'      => 'home_fields_themes_plugins',
 		'type'    => 'wysiwyg',
 		'options' => array(
 			'textarea_rows' => 15,
