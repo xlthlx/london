@@ -44,8 +44,9 @@ Thumbs.db
 *.lock
 
 # Ignore build Tools
+/_root
 /node_modules
-config.codekit3
+/vendor
 .idea
 package-lock.json
-/_root/
+
