@@ -19,7 +19,6 @@ function london_core_scripts() {
 		'screen,print' );
 
 	wp_deregister_script( 'jquery' );
-	wp_enqueue_script( 'tag-manager', 'https://www.googletagmanager.com/gtag/js?id=UA-21923886-12', false, [], true );
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/assets/bootstrap/bootstrap.bundle.min.js', false, [], true );
 	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/js/scripts.js', false, [], true );
 
