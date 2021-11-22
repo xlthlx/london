@@ -1,20 +1,3 @@
-// Google TagManager
-window.dataLayer = window.dataLayer || [];
-
-function gtag() {
-	dataLayer.push(arguments);
-}
-
-gtag('js', new Date());
-
-gtag('config', 'UA-21923886-12', {
-	'anonymize_ip': true,
-	'cookie_prefix': 'gaCookie',
-	'cookie_domain': 'piccioni.london',
-	'cookie_expires': 60 * 60 * 24 * 28,
-	'cookie_update': false
-});
-
 // Smooth scroll to top
 document.getElementById('top-arrow').addEventListener('click', function (e) {
 	e.preventDefault();
