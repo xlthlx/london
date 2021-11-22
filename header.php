@@ -13,12 +13,12 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<title><?php echo get_bloginfo( 'description' ); ?> | <?php echo get_bloginfo( 'name' ); ?></title>
 	<meta name="description" content="<?php echo wp_trim_words( get_the_content(), 20, '...' ); ?>"/>
-	<link rel='dns-prefetch' href='//www.googletagmanager.com' />
 	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/icons/icon-32.png" sizes="32x32"/>
 	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/icons/icon-192.png" sizes="192x192"/>
 	<link rel="apple-touch-icon-precomposed" href="<?php echo get_template_directory_uri(); ?>/assets/img/icons/icon-180.png"/>
 	<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/assets/img/icons/icon-270.png"/>
 	<?php wp_head(); ?>
+	<script defer data-domain="piccioni.london" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body <?php body_class(); ?>>
 <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
