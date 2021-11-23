@@ -253,24 +253,6 @@ function ln_register_home_fields() {
 		),
 	) );
 
-	$home_fields->add_field( array(
-		'name'    => 'Themes and plugins',
-		'id'      => 'home_fields_themes_plugins',
-		'type'    => 'wysiwyg',
-		'options' => array(
-			'textarea_rows' => 15,
-		),
-	) );
-
-	$home_fields->add_field( array(
-		'name'    => 'Contact',
-		'id'      => 'home_fields_contact',
-		'type'    => 'wysiwyg',
-		'options' => array(
-			'textarea_rows' => 15,
-		),
-	) );
-
 }
 
 add_action( 'cmb2_init', 'ln_register_home_fields' );

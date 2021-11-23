@@ -270,7 +270,7 @@ endif; ?>
 
 		<div class="row">
 			<div class="col-md-12 mb-4">
-				<?php echo apply_filters( 'the_content', get_post_meta( $post->ID, 'home_fields_contact', true ) ); ?>
+				<?php echo do_shortcode('[contact-form-7 id="8"]'); ?>
 			</div>
 		</div>
 
