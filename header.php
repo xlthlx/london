@@ -9,16 +9,14 @@
 <html id="top" lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="description" content="Serena Piccioni, a Senior Developer with 20+ years of experience in the digital and information technology industry."/>
+	<meta name="author" content="Serena Piccioni">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><?php echo get_bloginfo( 'description' ); ?> | <?php echo get_bloginfo( 'name' ); ?></title>
-	<meta name="description" content="<?php echo wp_trim_words( get_the_content(), 20, '...' ); ?>"/>
-	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/icons/icon-32.png" sizes="32x32"/>
-	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/icons/icon-192.png" sizes="192x192"/>
-	<link rel="apple-touch-icon-precomposed" href="<?php echo get_template_directory_uri(); ?>/assets/img/icons/icon-180.png"/>
-	<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/assets/img/icons/icon-270.png"/>
-	<?php wp_head(); ?>
+	<link rel="author" href="<?php echo home_url( '/' ); ?>humans.txt"/>
+	<link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/assets/manifest/manifest.json"/>
 	<script defer data-domain="piccioni.london" src="https://plausible.io/js/plausible.js"></script>
+	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
 <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
