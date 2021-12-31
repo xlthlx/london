@@ -2,7 +2,7 @@
     font-family: 'JetBrains Mono';
     font-style: normal;
     font-weight: 400;
-    src: local('JetBrains Mono'), local('Pacifico-Regular'), url(../../assets/fonts/JetBrainsMono-Regular.woff2) format('woff2'), url('../../assets/fonts/JetBrainsMono-Regular.eot') format('embedded-opentype'), url('../../assets/fonts/JetBrainsMono-Regular.woff') format('woff'), url('../../assets/fonts/JetBrainsMono-Variable.ttf') format('truetype');
+    src: local('JetBrains Mono'), local('JetBrains Mono'), url(../../assets/fonts/JetBrainsMono-Regular.woff2) format('woff2'), url('../../assets/fonts/JetBrainsMono-Regular.eot') format('embedded-opentype'), url('../../assets/fonts/JetBrainsMono-Regular.woff') format('woff'), url('../../assets/fonts/JetBrainsMono-Variable.ttf') format('truetype');
     font-display: swap;
 }
 
@@ -48,6 +48,10 @@ h2 {
     font-weight: 500;
     text-transform: uppercase;
     color: #fff;
+}
+
+p {
+    overflow-wrap: break-word;
 }
 
 .navbar {
