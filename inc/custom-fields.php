@@ -156,7 +156,6 @@ function ln_register_work_fields() {
 
 add_action( 'cmb2_init', 'ln_register_work_fields' );
 
-
 function ln_register_themes_fields() {
 
 	$themes_fields = new_cmb2_box( array(
@@ -301,13 +300,5 @@ function ln_taxonomy_show_on_filter( $display, $meta_box ) {
 }
 
 add_filter( 'cmb2_show_on', 'ln_taxonomy_show_on_filter', 10, 2 );
-
-
-function wpdocs_selectively_enqueue_admin_script() {
-wp_deregister_script('wp-tinymce');
-    wp_enqueue_script( 'wp-tinymce-root', '/wp-includes/js/tinymce/tinymce.min.js', array() );
-    wp_enqueue_script( 'wp-tinymce', '/wp-includes/js/tinymce/plugins/compat3x/plugin.min.js', array('wp-tinymce-root') );
-}
-add_action( 'admin_enqueue_scripts', 'wpdocs_selectively_enqueue_admin_script' );
 
 

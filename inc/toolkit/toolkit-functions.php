@@ -18,7 +18,8 @@ add_action( 'wp_head', 'ob_start', 1, 0 );
 function wt_upload_filter( $file ) {
 
 	$original_filename = pathinfo( $file['name'] );
-	set_transient( '_clean_image_filenames_original_filename', $original_filename['filename'], 60 );
+	set_transient( '_clean_image_filenames_original_filename',
+		$original_filename['filename'], 60 );
 
 	$input = array(
 		'ß',
@@ -31,7 +32,8 @@ function wt_upload_filter( $file ) {
 	);
 
 	$path         = pathinfo( $file['name'] );
-	$new_filename = preg_replace( '/.' . $path['extension'] . '$/', '', $file['name'] );
+	$new_filename = preg_replace( '/.' . $path['extension'] . '$/', '',
+		$file['name'] );
 	$new_filename = str_replace( $input, $output, $new_filename );
 	$file['name'] = sanitize_title( $new_filename ) . '.' . $path['extension'];
 
@@ -51,7 +53,10 @@ function wt_update_attachment_title( $attachment_id ) {
 	$original_filename = get_transient( '_clean_image_filenames_original_filename' );
 
 	if ( $original_filename ) {
-		wp_update_post( array( 'ID' => $attachment_id, 'post_title' => $original_filename ) );
+		wp_update_post( [
+			'ID'         => $attachment_id,
+			'post_title' => $original_filename
+		] );
 		delete_transient( '_clean_image_filenames_original_filename' );
 	}
 }
@@ -68,7 +73,8 @@ function wt_disable_emoji_support() {
 	remove_filter( 'comment_tewt_rss', 'wp_staticize_emoji' );
 	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
 	add_filter( 'emoji_svg_url', '__return_false' );
-	add_filter( 'wp_resource_hints', 'wt_disable_emojis_remove_dns_prefetch', 10, 2 );
+	add_filter( 'wp_resource_hints', 'wt_disable_emojis_remove_dns_prefetch',
+		10, 2 );
 }
 
 /**
@@ -82,7 +88,8 @@ function wt_disable_emoji_support() {
 function wt_disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
 	if ( 'dns-prefetch' === $relation_type ) {
 		/** This filter is documented in wp-includes/formatting.php */
-		$emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/' );
+		$emoji_svg_url = apply_filters( 'emoji_svg_url',
+			'https://s.w.org/images/core/emoji/2/svg/' );
 		$urls          = array_diff( $urls, [ $emoji_svg_url ] );
 	}
 
@@ -161,7 +168,8 @@ function wt_disable_wp_rest_api( $access ) {
 
 	if ( ! is_user_logged_in() ) {
 		$message = apply_filters( 'disable_wp_rest_api_error',
-			__( 'REST API restricted to authenticated users.', 'disable-wp-rest-api' ) );
+			__( 'REST API restricted to authenticated users.',
+				'disable-wp-rest-api' ) );
 
 		return new WP_Error( 'rest_login_required', $message,
 			[ 'status' => rest_authorization_required_code() ] );
@@ -245,7 +253,8 @@ function wt_disable_xml_rpc_call( $method ) {
 	if ( $method !== 'pingback.ping' ) {
 		return;
 	}
-	wp_die( 'This site does not have pingback.', 'Pingback not Enabled!', [ 'response' => 403 ] );
+	wp_die( 'This site does not have pingback.', 'Pingback not Enabled!',
+		[ 'response' => 403 ] );
 }
 
 /**
@@ -302,21 +311,19 @@ function wt_remove_xml_rpc_tag_buffer_end() {
  * @return mixed
  */
 function wt_remove_xml_rpc_tag_buffer( $buffer ) {
-	preg_match_all( '/(<link([^>]+)rel=("|\')pingback("|\')([^>]+)?\/?>)/im',
+	preg_match_all( '/(<link([^>]+)rel=(["\'])pingback(["\'])([^>]+)?\/?>)/im',
 		$buffer, $founds );
 
 	if ( ! isset( $founds[0] ) || count( $founds[0] ) < 1 ) {
 		return $buffer;
 	}
 
-	if ( count( $founds[0] ) > 0 ) {
-		foreach ( $founds[0] as $found ) {
-			if ( empty( $found ) ) {
-				continue;
-			}
-
-			$buffer = str_replace( $found, '', $buffer );
+	foreach ( $founds[0] as $found ) {
+		if ( empty( $found ) ) {
+			continue;
 		}
+
+		$buffer = str_replace( $found, '', $buffer );
 	}
 
 	return $buffer;
@@ -378,7 +385,7 @@ function wt_replace_html_comments( $html ) {
 	$raw_html = $html;
 
 	//CLRF-166 issue fix bug with noindex (\s?\/?noindex)
-	$html = preg_replace( '#<!--(?!<!|\s?ngg_resource|\s?\/?noindex)[^\[>].*?-->#s',
+	$html = preg_replace( '#<!--(?!<!|\s?ngg_resource|\s?/?noindex)[^\[>].*?-->#s',
 		'', $html );
 
 	// If replacement is completed with an error, user will receive a white screen.
@@ -402,7 +409,7 @@ function wt_change_version_from_style_js( $src ) {
 	if ( ! is_admin() ) {
 
 		$clean_src  = $src ? esc_url( remove_query_arg( 'ver', $src ) ) : false;
-		$clean_path = $clean_path = str_replace( site_url(), ABSPATH, $clean_src );
+		$clean_path = str_replace( site_url(), ABSPATH, $clean_src );
 		// Default to root
 
 		if ( strpos( $clean_src, 'wp-content/plugins' ) !== false ) {
@@ -425,13 +432,13 @@ function wt_change_version_from_style_js( $src ) {
 				ABSPATH . 'wp-includes/', $clean_src );
 		}
 
-		$return = file_exists( $clean_path ) ? add_query_arg( 'ln',
-			filemtime( $clean_path ), $clean_src ) : add_query_arg( 'ln',
+		$return = file_exists( $clean_path ) ? add_query_arg( 'ver',
+			filemtime( $clean_path ), $clean_src ) : add_query_arg( 'ver',
 			'file-not-found', $clean_src );
 
 		//External script/css
 		if ( strpos( $clean_src, site_url() ) === false ) {
-			$return = preg_replace( '~(\?|&)ver=[^&]*~', '', $src );
+			$return = preg_replace( '~([?&])ver=[^&]*~', '', $src );
 
 		}
 
@@ -453,8 +460,7 @@ function wt_change_version_from_style_js( $src ) {
 function wt_disable_dashboard_widgets() {
 	global $wp_meta_boxes;
 
-	unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity'], $wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now'], $wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments'], $wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links'], $wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins'], $wp_meta_boxes['dashboard']['side']['core']['dashboard_primary'], $wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary'], $wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press'], $wp_meta_boxes['dashboard']['side']['core']['dashboard_recent_drafts'], $wp_meta_boxes['dashboard']['normal']['core']['yoast_db_widget'], $wp_meta_boxes['dashboard']['normal']['core']['rg_forms_dashboard'], $wp_meta_boxes['dashboard']['normal']['core']['semperplugins-rss-feed'], $wp_meta_boxes['dashboard']['normal']['core']['analytify-dashboard-addon'], $wp_meta_boxes['dashboard']['normal']['core']['aj_dashboard_widget'],
-	$wp_meta_boxes['dashboard']['normal']['core']['aioseo-rss-feed'] );
+	unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity'], $wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now'], $wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments'], $wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links'], $wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins'], $wp_meta_boxes['dashboard']['side']['core']['dashboard_primary'], $wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary'], $wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press'], $wp_meta_boxes['dashboard']['side']['core']['dashboard_recent_drafts'], $wp_meta_boxes['dashboard']['normal']['core']['yoast_db_widget'], $wp_meta_boxes['dashboard']['normal']['core']['rg_forms_dashboard'], $wp_meta_boxes['dashboard']['normal']['core']['semperplugins-rss-feed'], $wp_meta_boxes['dashboard']['normal']['core']['analytify-dashboard-addon'], $wp_meta_boxes['dashboard']['normal']['core']['aj_dashboard_widget'], $wp_meta_boxes['dashboard']['normal']['core']['aioseo-rss-feed'] );
 
 	remove_action( 'welcome_panel', 'wp_welcome_panel' );
 }
@@ -633,12 +639,16 @@ function wt_plugins_loaded() {
 
 	$request = parse_url( $_SERVER['REQUEST_URI'] );
 
-	if ( ! is_admin() && ( strpos( $_SERVER['REQUEST_URI'], 'wp-login.php' ) !== false || ( isset( $request['path'] ) && untrailingslashit( $request['path'] ) === site_url( 'wp-login', 'relative' ) ) ) ) {
+	if ( ! is_admin() && ( strpos( $_SERVER['REQUEST_URI'],
+				'wp-login.php' ) !== false || ( isset( $request['path'] ) && untrailingslashit( $request['path'] ) === site_url( 'wp-login',
+					'relative' ) ) ) ) {
 		$wp_login_php           = true;
-		$_SERVER['REQUEST_URI'] = wt_user_trailingslashit( '/' . str_repeat( '-/', 10 ) );
+		$_SERVER['REQUEST_URI'] = wt_user_trailingslashit( '/' . str_repeat( '-/',
+				10 ) );
 		$pagenow                = 'index.php';
 
-	} elseif ( ( ! get_option( 'permalink_structure' ) && isset( $_GET['wt_login'] ) && empty( $_GET['wt_login'] ) ) || ( isset( $request['path'] ) && untrailingslashit( $request['path'] ) === home_url( $wt_login['wt_login'], 'relative' ) ) ) {
+	} elseif ( ( ! get_option( 'permalink_structure' ) && isset( $_GET['wt_login'] ) && empty( $_GET['wt_login'] ) ) || ( isset( $request['path'] ) && untrailingslashit( $request['path'] ) === home_url( $wt_login['wt_login'],
+				'relative' ) ) ) {
 
 		$pagenow = 'wp-login.php';
 	}
@@ -668,7 +678,7 @@ function wt_wp_loaded() {
 	}
 
 	if (
-	$wp_login_php
+		$wp_login_php
 	) {
 		if (
 			( $referer = wp_get_referer() ) &&

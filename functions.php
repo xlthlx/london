@@ -9,7 +9,7 @@
  */
 
 /**
- *  Enqueue core scripts and core styles
+ *  Enqueue core scripts and core styles.
  */
 function london_core_scripts() {
 
@@ -36,7 +36,7 @@ function london_admin_theme_style() {
 add_action( 'admin_enqueue_scripts', 'london_admin_theme_style' );
 
 /**
- * Add pages into feeds
+ * Add pages into feeds.
  *
  * @param $qv
  *
@@ -54,7 +54,7 @@ function london_feed_request( $qv ) {
 add_filter( 'request', 'london_feed_request' );
 
 /**
- * Remove Posts and Comments menu from admin
+ * Remove Posts and Comments menu from admin.
  */
 function london_remove_menus() {
 	remove_menu_page( 'edit.php' );
@@ -73,4 +73,5 @@ require_once __DIR__ . '/inc/custom-post-types.php';
 require_once __DIR__ . '/inc/custom-fields.php';
 require_once __DIR__ . '/inc/custom-login.php';
 require_once __DIR__ . '/inc/toolkit/toolkit.php';
+require_once __DIR__ . '/inc/template-functions.php';
 require_once __DIR__ . '/inc/template-tags.php';

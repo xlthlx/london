@@ -22,11 +22,9 @@ function london_enqueue_login() {
 add_action( 'login_enqueue_scripts', 'london_enqueue_login', 10 );
 
 /**
- * @param $url
- *
- * @return mixed
+ * @return string
  */
-function london_login_url( $url ) {
+function london_login_url() {
 	return get_home_url();
 }
 
@@ -37,7 +35,7 @@ add_filter( 'login_headerurl', 'london_login_url' );
  *
  * @param $title
  *
- * @return mixed
+ * @return string
  */
 function london_login_title( $title ) {
 	return get_bloginfo( 'name' ) . '</a></h1><p class="desc"><em>' . get_bloginfo( 'description' ) . '</em></p><h1 style="display:none"><a>';

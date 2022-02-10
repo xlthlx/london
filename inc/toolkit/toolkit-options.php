@@ -7,29 +7,7 @@
  */
 
 require_once( __DIR__ . '/toolkit-functions.php' );
-global $wt_updates, $wt_general, $wt_dashboard, $wt_seo, $wt_archives, $wt_listing, $wt_login, $wt_uploads;
-
-/**
- * Updates options.
- */
-if ( isset( $wt_updates ) ) {
-	foreach ( $wt_updates as $key => $value ) {
-		//Radio fields yes/no
-		if ( $value === 'yes' ) {
-			switch ( $key ) {
-				case 'core':
-					add_filter( 'auto_update_core', '__return_true' );
-					break;
-				case 'themes':
-					add_filter( 'auto_update_theme', '__return_true' );
-					break;
-				case 'plugins':
-					add_filter( 'auto_update_plugin', '__return_true' );
-					break;
-			}
-		}
-	}
-}
+global $wt_general, $wt_dashboard, $wt_seo, $wt_archives, $wt_listing, $wt_login, $wt_uploads;
 
 /**
  * General options.
