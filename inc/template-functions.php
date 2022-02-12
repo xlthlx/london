@@ -6,6 +6,9 @@
  * @subpackage London
  */
 
+add_filter( 'wpcf7_load_js', '__return_false' );
+add_filter( 'wpcf7_load_css', '__return_false' );
+
 /**
  * Add plugin to TinyMCE.
  *

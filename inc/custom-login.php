@@ -10,9 +10,6 @@
  * Enqueue login CSS and JS.
  */
 function london_enqueue_login() {
-	wp_dequeue_style( 'login' );
-	wp_deregister_style( 'login' );
-
 	wp_enqueue_style( 'custom-login',
 		get_template_directory_uri() . '/assets/css/admin/login.min.css', [],
 		filemtime( get_template_directory() . '/assets/css/admin/login.min.css' ) );

@@ -8,6 +8,8 @@
  * @subpackage London
  */
 
+add_filter( 'login_display_language_dropdown', '__return_false' );
+
 /**
  *  Enqueue core scripts and core styles.
  */
@@ -16,8 +18,11 @@ function london_core_scripts() {
 	wp_enqueue_style( 'main',
 		get_template_directory_uri() . '/assets/css/main.min.css', false, [],
 		'screen,print' );
+	wp_dequeue_style( 'wp-block-library' );
 
 	wp_deregister_script( 'jquery' );
+	wp_deregister_script( 'wp-embed' );
+	wp_deregister_script( 'wp-polyfill' );
 	wp_enqueue_script( 'main',
 		get_template_directory_uri() . '/assets/js/main.min.js', false, [],
 		true );
@@ -63,6 +68,32 @@ function london_remove_menus() {
 }
 
 add_action( 'admin_menu', 'london_remove_menus' );
+
+/**
+ * Registers theme support.
+ */
+function ln_theme_supports() {
+	add_theme_support( 'title-tag' );
+	add_theme_support( 'align-wide' );
+	add_theme_support( 'editor-styles' );
+	add_theme_support( 'wp-block-styles' );
+	add_theme_support( 'custom-spacing' );
+	add_theme_support( 'responsive-embeds' );
+	add_theme_support( 'html5', array(
+		'comment-list',
+		'comment-form',
+		'search-form',
+		'gallery',
+		'caption',
+		'style',
+		'script'
+	) );
+
+	remove_theme_support( 'automatic-feed-links' );
+	remove_theme_support( 'widgets-block-editor' );
+}
+
+add_action( 'after_setup_theme', 'ln_theme_supports' );
 
 require_once __DIR__ . '/vendor.phar';
 
