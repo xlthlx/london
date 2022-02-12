@@ -16,9 +16,9 @@ module.exports = function (grunt) {
       },
       build: {
         files: {
-          'assets/js/main.min.js': ['assets/vendor/twbs/bootstrap/dist/js/bootstrap.bundle.js','src/js/scripts.js'],
+          'assets/js/main.min.js': ['vendor/twbs/bootstrap/dist/js/bootstrap.bundle.js','src/js/scripts.js'],
           'assets/js/admin/admin.min.js': ['src/js/admin/admin.js'],
-          'assets/js/admin/login.min.js': ['src/js/admin/login.js', 'assets/vendor/twbs/bootstrap/dist/js/bootstrap.bundle.js']
+          'assets/js/admin/login.min.js': ['src/js/admin/login.js', 'vendor/twbs/bootstrap/dist/js/bootstrap.bundle.js']
         }
       }
     },
@@ -26,9 +26,9 @@ module.exports = function (grunt) {
     cssmin: {
       target: {
         files: {
-          'assets/css/main.min.css': ['assets/vendor/twbs/bootstrap/dist/css/bootstrap.css', 'src/css/style.css'],
+          'assets/css/main.min.css': ['vendor/twbs/bootstrap/dist/css/bootstrap.css', 'src/css/style.css'],
           'assets/css/admin/admin.min.css': ['src/css/admin/admin.css'],
-          'assets/css/admin/login.min.css': ['assets/vendor/twbs/bootstrap/dist/css/bootstrap.css','src/css/style.css','src/css/admin/login.css'],
+          'assets/css/admin/login.min.css': ['vendor/twbs/bootstrap/dist/css/bootstrap.css','src/css/style.css','src/css/admin/login.css'],
         }
       }
     },
