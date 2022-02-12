@@ -1,0 +1,16 @@
+{
+  "name": "piccioni.london",
+  "version": "1.0.0",
+  "description": "piccioni.london theme.",
+  "main": "Gruntfile.js",
+  "author": "xlthlx",
+  "devDependencies": {
+    "grunt": "^1.4.1",
+    "grunt-contrib-cssmin": "^4.0.0",
+    "grunt-contrib-imagemin": "latest",
+    "grunt-contrib-jshint": "^3.1.1",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "jshint-stylish": "latest"
+  }
+}

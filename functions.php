@@ -13,14 +13,14 @@
  */
 function london_core_scripts() {
 
-	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/bootstrap/bootstrap.min.css', false, [],
-		'screen,print' );
-	wp_enqueue_style( 'style', get_template_directory_uri() . '/assets/css/style.css', false, [],
+	wp_enqueue_style( 'main',
+		get_template_directory_uri() . '/assets/css/main.min.css', false, [],
 		'screen,print' );
 
 	wp_deregister_script( 'jquery' );
-	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/assets/bootstrap/bootstrap.bundle.min.js', false, [], true );
-	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/js/scripts.js', false, [], true );
+	wp_enqueue_script( 'main',
+		get_template_directory_uri() . '/assets/js/main.min.js', false, [],
+		true );
 
 }
 
@@ -30,7 +30,8 @@ add_action( 'wp_enqueue_scripts', 'london_core_scripts', 20 );
  * Enqueue admin style.
  */
 function london_admin_theme_style() {
-	wp_enqueue_style( 'admin-style', get_template_directory_uri() . '/assets/css/admin/admin.css' );
+	wp_enqueue_style( 'admin-style',
+		get_template_directory_uri() . '/assets/css/admin/admin.min.css' );
 }
 
 add_action( 'admin_enqueue_scripts', 'london_admin_theme_style' );
@@ -75,3 +76,4 @@ require_once __DIR__ . '/inc/custom-login.php';
 require_once __DIR__ . '/inc/toolkit/toolkit.php';
 require_once __DIR__ . '/inc/template-functions.php';
 require_once __DIR__ . '/inc/template-tags.php';
+require_once __DIR__ . '/inc/minify-html.php';

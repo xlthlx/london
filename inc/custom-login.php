@@ -7,21 +7,26 @@
  */
 
 /**
- *
+ * Enqueue login CSS and JS.
  */
 function london_enqueue_login() {
-	$css_path = get_template_directory_uri() . '/assets/css/';
+	wp_dequeue_style( 'login' );
+	wp_deregister_style( 'login' );
 
-	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/vendor/twbs/bootstrap/dist/css/bootstrap.min.css', false, '', 'screen,print' );
-	wp_enqueue_style( 'style', $css_path . 'style.css', false, '', 'screen,print' );
-
-	wp_enqueue_style( 'custom-login', $css_path . 'admin/login.css', false, '', 'screen,print' );
-	wp_enqueue_script( 'jquery-login', includes_url( '/js/jquery/jquery.js' ), false, '' );
+	wp_enqueue_style( 'custom-login',
+		get_template_directory_uri() . '/assets/css/admin/login.min.css', [],
+		filemtime( get_template_directory() . '/assets/css/admin/login.min.css' ) );
+	wp_enqueue_script( 'custom-login',
+		get_template_directory_uri() . '/assets/js/admin/login.min.js', [],
+		filemtime( get_template_directory() . '/assets/js/admin/login.min.js' ),
+		true );
 }
 
 add_action( 'login_enqueue_scripts', 'london_enqueue_login', 10 );
 
 /**
+ * Change the header url into login.
+ *
  * @return string
  */
 function london_login_url() {
@@ -44,6 +49,8 @@ function london_login_title( $title ) {
 add_filter( 'login_headertitle', 'london_login_title' );
 
 /**
+ * Change some text strings into login.
+ *
  * @param $translation
  * @param $login_texts
  * @param $domain
@@ -74,7 +81,7 @@ function london_gettext( $translation, $login_texts, $domain ) {
 }
 
 /**
- *
+ * Init filter strings.
  */
 function london_login_head() {
 	add_filter( 'gettext', 'london_gettext', 20, 3 );
@@ -83,37 +90,19 @@ function london_login_head() {
 add_action( 'login_head', 'london_login_head' );
 
 /**
- *
- */
-function london_login_classes_footer() {
-	echo "<script>
-	        jQuery('#user_login').removeClass('input').addClass('form-control');
-	        jQuery('#user_pass').removeClass('input').addClass('form-control');
-	        jQuery('#wp-submit').removeClass('button button-primary button-large').addClass('btn btn-outline-light btn-sm rounded-0');
-		</script>";
-}
-
-/**
- *
- */
-function london_login_classes() {
-	add_filter( 'login_footer', 'london_login_classes_footer' );
-}
-
-add_action( 'init', 'london_login_classes' );
-
-/**
- * @param $title
+ * Change login title.
  *
  * @return string
  */
-function london_login_page_title( $title ) {
-	return 'Entra | ' . get_bloginfo( 'name' );
+function london_login_page_title() {
+	return 'Login | ' . get_bloginfo( 'name' );
 }
 
 add_filter( 'login_title', 'london_login_page_title', 99 );
 
 /**
+ * Force the login with email.
+ *
  * @param $user
  * @param $username
  * @param $password
@@ -130,7 +119,8 @@ function london_authenticate( $user, $username, $password ) {
 		if ( isset( $user, $user->user_login, $user->user_status ) && 0 === (int) $user->user_status ) {
 			$username = $user->user_login;
 
-			return wp_authenticate_username_password( null, $username, $password );
+			return wp_authenticate_username_password( null, $username,
+				$password );
 		}
 	}
 

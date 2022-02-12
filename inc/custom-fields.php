@@ -300,5 +300,3 @@ function ln_taxonomy_show_on_filter( $display, $meta_box ) {
 }
 
 add_filter( 'cmb2_show_on', 'ln_taxonomy_show_on_filter', 10, 2 );
-
-
