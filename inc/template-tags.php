@@ -107,7 +107,7 @@ if ( ! function_exists( 'ln_get_item_id' ) ) {
 	}
 }
 
-if ( ! function_exists( 'xlt_get_file_content' ) ) {
+if ( ! function_exists( 'ln_get_file_content' ) ) {
 	/**
 	 * This method gets the content of a given file.
 	 *
@@ -115,7 +115,7 @@ if ( ! function_exists( 'xlt_get_file_content' ) ) {
 	 *
 	 * @return  string Content of $file_path
 	 */
-	function xlt_get_file_content( $file_path ) {
+	function ln_get_file_content( $file_path ) {
 
 		global $wp_filesystem;
 		require_once( ABSPATH . '/wp-admin/includes/file.php' );
