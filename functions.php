@@ -42,6 +42,21 @@ function london_admin_theme_style() {
 add_action( 'admin_enqueue_scripts', 'london_admin_theme_style' );
 
 /**
+ * Enqueue editor scripts.
+ *
+ * @return void
+ */
+function enqueue_editor_scripts() {
+	wp_enqueue_script( 'theme-editor',
+		get_template_directory_uri() . '/assets/js/admin/editor.min.js',
+		[ 'wp-blocks', 'wp-dom' ],
+		filemtime( get_template_directory() . '/assets/js/admin/editor.min.js' ),
+		true );
+}
+
+add_action( 'enqueue_block_editor_assets', 'ln_enqueue_editor_scripts' );
+
+/**
  * Add pages into feeds.
  *
  * @param $qv
@@ -91,6 +106,7 @@ function ln_theme_supports() {
 
 	remove_theme_support( 'automatic-feed-links' );
 	remove_theme_support( 'widgets-block-editor' );
+	remove_theme_support( 'core-block-patterns' );
 }
 
 add_action( 'after_setup_theme', 'ln_theme_supports' );
