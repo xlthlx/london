@@ -14,9 +14,6 @@
 # Do NOT ignore .circleci
 !.circleci
 
-# Do NOT ignore .github
-!.github
-
 # Do NOT ignore .editorconfig
 !.editorconfig
 
