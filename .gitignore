@@ -14,6 +14,9 @@
 # Do NOT ignore .circleci
 !.circleci
 
+# Do NOT ignore .github
+!.github
+
 # Do NOT ignore .editorconfig
 !.editorconfig
 
@@ -49,5 +52,3 @@ Thumbs.db
 /vendor
 .idea
 package-lock.json
-
-/src/

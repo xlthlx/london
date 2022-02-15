@@ -1,2 +1,12 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Declare files that will always have CRLF line endings on checkout
+*.txt            text eol=crlf
+wp-config.php    text eol=crlf
+
+# Declare files that will always have LF line endings on checkout
+*.css text eol=lf
+*.js  text eol=lf
+*.php text eol=lf
+*.po  text eol=lf
