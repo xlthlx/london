@@ -1,4 +1,4 @@
-name: WPCS check
+name: WordPress Coding Standards check
 
 on: push
 
@@ -10,3 +10,5 @@ jobs:
       - uses: actions/checkout@v2
       - name: WPCS check
         uses: 10up/wpcs-action@stable
+        with:
+          excludes: 'inc/cmb2 src'
