@@ -95,3 +95,16 @@ function ln_insert_css() {
 }
 
 add_action( 'wp_head', 'ln_insert_css' );
+
+/**
+ * @return void
+ */
+function ln_404_plausible() {
+	if ( is_404() ) {
+		?>
+		<script>plausible("404", {props: {path: document.location.pathname}});</script>
+		<?php
+	}
+}
+
+add_action( 'wp_head', 'ln_404_plausible' );

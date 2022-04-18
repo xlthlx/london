@@ -17,7 +17,8 @@
     <title><?php echo esc_attr( get_bloginfo( 'description' ) ); ?> | <?php echo esc_attr( get_bloginfo( 'name' ) ); ?></title>
     <link rel="author" href="<?php echo esc_url( home_url( '/' ) ); ?>humans.txt"/>
     <link rel="manifest" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/manifest/manifest.json"/>
-    <script defer data-domain="piccioni.london" src="https://plausible.io/js/plausible.js"></script>
+    <script defer data-domain="piccioni.london" src="https://plausible.io/js/script.outbound-links.file-downloads.hash.js"></script>
+    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
