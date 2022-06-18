@@ -60,7 +60,7 @@ p {
     text-transform: uppercase;
     line-height: 18px;
     letter-spacing: 0.06em;
-    color: #cdcdcd !important;
+    color: #e5e5e5 !important;
 }
 
 .navbar .dropdown-menu a:hover {
@@ -90,7 +90,7 @@ section img {
 }
 
 p {
-    color: #cdcdcd;
+    color: #e5e5e5;
 }
 
 main {
@@ -98,7 +98,7 @@ main {
 }
 
 main ul li {
-    color: #cdcdcd;
+    color: #e5e5e5;
     list-style-type: square;
 }
 
@@ -107,7 +107,7 @@ hr.dotted {
 }
 
 .dark-grey-text {
-    color: #6f6d6d !important;
+    color: #797979 !important;
 }
 
 .small-title {
