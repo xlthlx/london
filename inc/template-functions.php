@@ -100,7 +100,7 @@ add_action( 'wp_head', 'ln_insert_css' );
  * @return void
  */
 function ln_insert_scripts() {
-	$file  = get_template_directory() . '/assets/css/main.min.css';
+	$file  = get_template_directory() . '/assets/js/main.min.js';
 	$script = ln_get_file_content( $file );
 
 	echo '<script>' . $script . '</script>';
