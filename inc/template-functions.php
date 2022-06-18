@@ -87,14 +87,26 @@ add_filter( 'embed_oembed_discover', 'ln_restore_oembed_cache' );
  */
 function ln_insert_css() {
 	$file  = get_template_directory() . '/assets/css/main.min.css';
-	$style = str_replace( 'fonts/',
-		get_template_directory_uri() . '/assets/fonts/',
-		ln_get_file_content( $file ) );
+	$style = ln_get_file_content( $file );
 
 	echo '<style id="all-styles-inline">' . $style . '</style>';
 }
 
 add_action( 'wp_head', 'ln_insert_css' );
+
+/**
+ * Insert minified CSS into header.
+ *
+ * @return void
+ */
+function ln_insert_scripts() {
+	$file  = get_template_directory() . '/assets/css/main.min.css';
+	$script = ln_get_file_content( $file );
+
+	echo '<script>' . $script . '</script>';
+}
+
+add_action( 'wp_footer', 'ln_insert_scripts' );
 
 /**
  * @return void

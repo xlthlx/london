@@ -20,7 +20,7 @@ function london_core_scripts() {
 	wp_deregister_script( 'jquery' );
 	wp_deregister_script( 'wp-embed' );
 	wp_deregister_script( 'wp-polyfill' );
-	wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.min.js', false, [], true );
+	//wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.min.js', false, [], true );
 
 }
 
