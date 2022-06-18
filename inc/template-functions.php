@@ -95,7 +95,7 @@ function ln_insert_css() {
 add_action( 'wp_head', 'ln_insert_css' );
 
 /**
- * Insert minified CSS into header.
+ * Insert minified JS into footer.
  *
  * @return void
  */
