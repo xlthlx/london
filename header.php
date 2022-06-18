@@ -72,7 +72,7 @@
     </nav>
 </header>
 
-<main class="mt-5 pt-5">
+<main class="mt-5 pt-3">
     <div id="content" class="container">
 
         <section class="d-flex my-4">
@@ -86,6 +86,6 @@
             </div>
         </section>
 
-        <hr class="my-5">
+        <hr class="mb-5 mt-3">
 
 
