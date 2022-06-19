@@ -1,3 +1,9 @@
+WebFont.load({
+	google: {
+		families: ['JetBrains Mono']
+	}
+});
+
 // Smooth scroll to top
 document.getElementById('top-arrow').addEventListener('click', function (e) {
 	e.preventDefault();

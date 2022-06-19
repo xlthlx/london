@@ -16,7 +16,7 @@ module.exports = function (grunt) {
       },
       build: {
         files: {
-          'assets/js/main.min.js': ['vendor/twbs/bootstrap/dist/js/bootstrap.bundle.js','src/js/scripts.js'],
+          'assets/js/main.min.js': ['vendor/twbs/bootstrap/dist/js/bootstrap.bundle.js','src/js/webfont.js','src/js/scripts.js'],
           'assets/js/admin/admin.min.js': ['src/js/admin/admin.js'],
           'assets/js/admin/editor.min.js': ['src/js/admin/editor.js'],
           'assets/js/admin/login.min.js': ['src/js/admin/login.js', 'vendor/twbs/bootstrap/dist/js/bootstrap.bundle.js']
