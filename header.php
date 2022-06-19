@@ -10,17 +10,29 @@
 <html id="top" lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description"
-          content="Serena Piccioni, a Senior Developer with 20+ years of experience in the digital and information technology industry."/>
+    <meta name="description" content="Serena Piccioni, a Senior Developer with 20+ years of experience in the digital and information technology industry."/>
     <meta name="author" content="Serena Piccioni">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo esc_attr( get_bloginfo( 'description' ) ); ?> | <?php echo esc_attr( get_bloginfo( 'name' ) ); ?></title>
+    <title><?php echo esc_attr( get_bloginfo( 'name' ) ); ?> | <?php echo esc_attr( get_bloginfo( 'description' ) ); ?></title>
     <link rel="author" href="<?php echo esc_url( home_url( '/' ) ); ?>humans.txt"/>
     <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/icons/favicon.ico" sizes="any"><!-- 32×32 -->
     <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/icons/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/icons/apple-touch-icon.png"><!-- 180×180 -->
     <link rel="manifest" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/manifest/manifest.json"/>
     <script defer data-domain="piccioni.london" src="https://plausible.io/js/script.outbound-links.file-downloads.hash.js"></script>
+    <meta property="og:title" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?> | <?php echo esc_attr( get_bloginfo( 'description' ) ); ?>">
+    <meta property="og:type" content="page">
+    <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/assets/img/piccioni.london.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="900">
+    <meta property="og:image:alt" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>, <?php echo esc_attr( get_bloginfo( 'description' ) ); ?>">
+    <meta property="og:description" content="Serena Piccioni, a Senior Developer with 20+ years of experience in the digital and information technology industry.">
+    <meta property="og:url" content="https://piccioni.london">
+    <meta property="og:locale" content="en_EN">
+    <meta property="og:site_name" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
+    <meta property="article:author" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="<?php echo get_template_directory_uri(); ?>/assets/img/piccioni.london.jpg">
     <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 	<?php wp_head(); ?>
 </head>
