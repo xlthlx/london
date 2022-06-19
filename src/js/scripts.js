@@ -147,20 +147,3 @@ window.addEventListener("load", () => {
 		navigator.serviceWorker.register("/service-worker.js");
 	}
 });
-
-WebFontConfig = {
-	google: {
-		families: ['JetBrains Mono']
-	},
-	active: function () {
-		sessionStorage.fonts = true;
-	},
-	timeout: 2000
-};
-
-(function (d) {
-	let wf = d.createElement('script'), s = d.scripts[0];
-	wf.src = 'https://piccioni.london/wp-content/themes/london/assets/js/webfont.js';
-	wf.async = true;
-	s.parentNode.insertBefore(wf, s);
-})(document);
