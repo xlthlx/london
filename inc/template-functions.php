@@ -120,3 +120,17 @@ function ln_404_plausible() {
 }
 
 add_action( 'wp_head', 'ln_404_plausible' );
+
+/**
+ * Add icons into admin.
+ *
+ * @return void
+ */
+function ln_add_admin_icons() { ?>
+    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/icons/favicon.ico" sizes="any">
+    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/icons/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/icons/apple-touch-icon.png">
+<?php }
+
+add_action( 'login_head', 'ln_add_admin_icons' );
+add_action( 'admin_head', 'ln_add_admin_icons' );
