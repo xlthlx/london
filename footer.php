@@ -27,6 +27,11 @@
 </footer>
 
 <?php wp_footer(); ?>
+<style>
+    * {
+        font-family: 'JetBrains Mono', monospace;
+    }
+</style>
 <span id="fdd535028a359764030f8e3dc405859e"></span>
 </body>
 </html>
