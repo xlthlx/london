@@ -30,7 +30,8 @@ a, a:hover {
     height: auto;
     font-size: 2.8rem;
     font-weight: 300;
-    width: 100%
+    width: 100%;
+    font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
 }
 
 .login #backtoblog a:hover, .login #nav a:hover, .login h1 a:hover {

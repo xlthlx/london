@@ -36,7 +36,7 @@ add_filter( 'login_headerurl', 'london_login_url' );
  * @return string
  */
 function london_login_title( $title ) {
-	return get_bloginfo( 'name' ) . '</a></h1><p class="desc"><em>' . get_bloginfo( 'description' ) . '</em></p><h1 style="display:none"><a>';
+	return strtoupper( get_bloginfo( 'name' ) ) . '</a></h1><p class="desc"><em>' . get_bloginfo( 'description' ) . '</em></p><h1 style="display:none"><a>';
 }
 
 add_filter( 'login_headertitle', 'london_login_title' );
@@ -79,9 +79,9 @@ function london_gettext( $translation, $login_texts, $domain ) {
 function london_login_head() {
 	add_filter( 'gettext', 'london_gettext', 20, 3 );
 	?>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
 	<?php
 }
 

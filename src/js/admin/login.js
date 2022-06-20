@@ -25,5 +25,5 @@ if (document.getElementById('user_pass') !==null) {
 if (document.getElementById('wp-submit') !==null) {
     let wp_submit = document.getElementById('wp-submit')
     wp_submit.classList.remove('button','button-primary','button-large');
-    wp_submit.classList.add('btn','btn-outline-primary','rounded-0')
+    wp_submit.classList.add('btn','btn-outline-secondary','rounded-0','text-white')
 }
