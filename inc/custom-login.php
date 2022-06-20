@@ -10,13 +10,9 @@
  * Enqueue login CSS and JS.
  */
 function london_enqueue_login() {
-	wp_enqueue_style( 'custom-login',
-		get_template_directory_uri() . '/assets/css/admin/login.min.css', [],
-		filemtime( get_template_directory() . '/assets/css/admin/login.min.css' ) );
-	wp_enqueue_script( 'custom-login',
-		get_template_directory_uri() . '/assets/js/admin/login.min.js', [],
-		filemtime( get_template_directory() . '/assets/js/admin/login.min.js' ),
-		true );
+	wp_enqueue_style( 'custom-login', get_template_directory_uri() . '/assets/css/admin/login.min.css', [], filemtime( get_template_directory() . '/assets/css/admin/login.min.css' ) );
+	wp_enqueue_script( 'custom-login', get_template_directory_uri() . '/assets/js/admin/login.min.js', [],
+		filemtime( get_template_directory() . '/assets/js/admin/login.min.js' ), true );
 }
 
 add_action( 'login_enqueue_scripts', 'london_enqueue_login', 10 );
@@ -78,10 +74,15 @@ function london_gettext( $translation, $login_texts, $domain ) {
 }
 
 /**
- * Init filter strings.
+ * Init filter strings and add fonts.
  */
 function london_login_head() {
 	add_filter( 'gettext', 'london_gettext', 20, 3 );
+	?>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+	<?php
 }
 
 add_action( 'login_head', 'london_login_head' );
