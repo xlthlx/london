@@ -15,7 +15,7 @@
 
         <div class="container">
             <div class="row">
-                <div class="kb-club col d-inline">
+                <div class="kb-club col py-3 text-start">
                     <a target="blank" href="https://512kb.club" title="512KB Club Blue Team">
                         <span class="kb-club-no-bg">512KB Club</span><span class="kb-club-bg">Blue Team</span>
                     </a>
