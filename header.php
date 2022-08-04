@@ -13,6 +13,7 @@
     <meta name="description" content="Serena Piccioni, a Senior Developer with 20+ years of experience in the digital and information technology industry."/>
     <meta name="author" content="Serena Piccioni">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff"/>
     <title><?php echo esc_attr( get_bloginfo( 'name' ) ); ?> | <?php echo esc_attr( get_bloginfo( 'description' ) ); ?></title>
     <link rel="author" href="<?php echo esc_url( home_url( '/' ) ); ?>humans.txt"/>
     <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/icons/favicon.ico" sizes="any"><!-- 32×32 -->
@@ -92,7 +93,7 @@
         <section class="d-flex my-4">
             <div class="ms-auto text-end p-3">
                 <h1>
-                    <a class="h1" href="">
+                    <a class="h1" href="<?php echo get_home_url(); ?>">
 						<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>
                     </a>
                 </h1>
