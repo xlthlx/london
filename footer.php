@@ -34,6 +34,7 @@
 </footer>
 
 <?php wp_footer(); ?>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
 <span id="fdd535028a359764030f8e3dc405859e"></span>
 </body>
 </html>
