@@ -20,7 +20,6 @@
     <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/icons/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/icons/apple-touch-icon.png"><!-- 180×180 -->
     <link rel="manifest" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/manifest/manifest.json"/>
-    <script defer data-domain="piccioni.london" src="https://plausible.io/js/script.outbound-links.file-downloads.hash.js"></script>
     <meta property="og:title" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?> | <?php echo esc_attr( get_bloginfo( 'description' ) ); ?>">
     <meta property="og:type" content="page">
     <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/assets/img/piccioni.london.jpg">
@@ -35,8 +34,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="<?php echo get_template_directory_uri(); ?>/assets/img/piccioni.london.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
