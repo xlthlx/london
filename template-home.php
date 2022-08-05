@@ -190,7 +190,7 @@ endif; ?>
                 </div>
                 <div class="col-md-9 mb-4">
                     <h3 class="mb-4"><?php echo $job['title']; ?></h3>
-                    <h4 class="dark-grey-text"><?php echo $job['text_date']; ?></h4>
+                    <h4 class="h5 dark-grey-text"><?php echo $job['text_date']; ?></h4>
 					<?php echo $job['content']; ?>
                 </div>
             </div>
