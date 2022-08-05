@@ -75,7 +75,7 @@ wp.domReady(() => {
    */
   for (let i = 0, len = restrictedBlocks.length; i < len; i++) {
     wp.blocks.unregisterBlockType(restrictedBlocks[i])
-  };
+  }
 
   /**
    * Manage embed variations.
@@ -93,16 +93,4 @@ wp.domReady(() => {
     }
   })
 
-  /**
-   * Manage block style variations.
-   */
-  wp.blocks.registerBlockStyle('core/heading', {
-    name: 'heading-underline',
-    label: 'With underline',
-    isDefault: false
-  })
-
-  //wp.blocks.unregisterBlockStyle('core/image', ['rounded'])
-  //wp.blocks.unregisterBlockStyle('core/quote', ['large'])
-  //wp.blocks.unregisterBlockStyle('core/table', ['stripes'])
 })
