@@ -13,7 +13,7 @@ add_filter( 'login_display_language_dropdown', '__return_false' );
 /**
  *  Enqueue core scripts and core styles.
  */
-function london_core_scripts() {
+function ln_core_scripts() {
 
 	wp_dequeue_style( 'wp-block-library' );
 
@@ -23,29 +23,29 @@ function london_core_scripts() {
 
 }
 
-add_action( 'wp_enqueue_scripts', 'london_core_scripts', 20 );
+add_action( 'wp_enqueue_scripts', 'ln_core_scripts', 20 );
 
 /**
  * Enqueue admin style.
  */
-function london_admin_theme_style() {
+function ln_admin_theme_style() {
 	wp_enqueue_style( 'admin-style', get_template_directory_uri() . '/assets/css/admin/admin.min.css' );
 }
 
-add_action( 'admin_enqueue_scripts', 'london_admin_theme_style' );
+add_action( 'admin_enqueue_scripts', 'ln_admin_theme_style' );
 
 /**
  * Enqueue editor scripts.
  *
  * @return void
  */
-function london_enqueue_editor_scripts() {
+function ln_enqueue_editor_scripts() {
 	wp_enqueue_script( 'theme-editor', get_template_directory_uri() . '/assets/js/admin/editor.min.js',
 		[ 'wp-blocks', 'wp-dom' ],
 		filemtime( get_template_directory() . '/assets/js/admin/editor.min.js' ), true );
 }
 
-add_action( 'enqueue_block_editor_assets', 'london_enqueue_editor_scripts' );
+add_action( 'enqueue_block_editor_assets', 'ln_enqueue_editor_scripts' );
 
 /**
  * Add pages into feeds.
@@ -54,7 +54,7 @@ add_action( 'enqueue_block_editor_assets', 'london_enqueue_editor_scripts' );
  *
  * @return mixed
  */
-function london_feed_request( $qv ) {
+function ln_feed_request( $qv ) {
 	$rss_post_types = [ 'page' ];
 	if ( isset( $qv['feed'] ) && ! isset( $qv['post_type'] ) ) {
 		$qv['post_type'] = $rss_post_types;
@@ -63,17 +63,17 @@ function london_feed_request( $qv ) {
 	return $qv;
 }
 
-add_filter( 'request', 'london_feed_request' );
+add_filter( 'request', 'ln_feed_request' );
 
 /**
  * Remove Posts and Comments menu from admin.
  */
-function london_remove_menus() {
+function ln_remove_menus() {
 	remove_menu_page( 'edit.php' );
 	remove_menu_page( 'edit-comments.php' );
 }
 
-add_action( 'admin_menu', 'london_remove_menus' );
+add_action( 'admin_menu', 'ln_remove_menus' );
 
 /**
  * Registers theme support.

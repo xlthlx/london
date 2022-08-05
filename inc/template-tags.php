@@ -45,7 +45,7 @@ if ( ! function_exists( 'ln_get_jobs' ) ) {
 				$results[ $index ]['ID']        = $post_id;
 				$results[ $index ]['title']     = get_the_title();
 				$results[ $index ]['item_slug'] = $slug;
-				$results[ $index ]['item_id']   = ln_get_item_id( $slug );
+				$results[ $index ]['item_id']   = ln_get_item_id( $post_id );
 				$results[ $index ]['content']   = apply_filters( 'the_content', get_the_content() );
 
 				if ( $type === 'job' ) {
@@ -95,9 +95,10 @@ if ( ! function_exists( 'ln_get_item_id' ) ) {
 	 *
 	 * @return string
 	 */
-	function ln_get_item_id( $slug ) {
+	function ln_get_item_id( $post_id ) {
 		$return = '';
-		$array  = explode( '-', $slug );
+		$item = get_post($post_id);
+		$array  = explode( '-', $item->post_name );
 
 		foreach ( $array as $piece ) {
 			$return .= ucfirst( $piece );
