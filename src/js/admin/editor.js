@@ -7,7 +7,7 @@ wp.domReady(() => {
     'core/archives',
     // 'core/audio',
     'core/avatar',
-    // 'core/buttons',
+    'core/buttons',
     'core/calendar',
     'core/categories',
     // 'core/code',

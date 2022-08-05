@@ -18,7 +18,6 @@ function ln_core_scripts() {
 	wp_dequeue_style( 'wp-block-library' );
 
 	wp_deregister_script( 'jquery' );
-	//wp_deregister_script( 'wp-embed' );
 	wp_deregister_script( 'wp-polyfill' );
 
 }
