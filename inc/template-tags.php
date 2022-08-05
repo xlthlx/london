@@ -91,7 +91,7 @@ if ( ! function_exists( 'ln_get_jobs' ) ) {
 
 if ( ! function_exists( 'ln_get_item_id' ) ) {
 	/**
-	 * @param $slug
+	 * @param $post_id
 	 *
 	 * @return string
 	 */
