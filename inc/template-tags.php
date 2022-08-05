@@ -39,12 +39,11 @@ if ( ! function_exists( 'ln_get_jobs' ) ) {
 				$the_query->the_post();
 
 				$post_id = get_the_ID();
-				$slug    = sanitize_title( get_the_title() );
 				$index   = $the_query->current_post;
 
 				$results[ $index ]['ID']        = $post_id;
 				$results[ $index ]['title']     = get_the_title();
-				$results[ $index ]['item_slug'] = $slug;
+				$results[ $index ]['item_slug'] = ln_get_item_slug( $post_id );
 				$results[ $index ]['item_id']   = ln_get_item_id( $post_id );
 				$results[ $index ]['content']   = apply_filters( 'the_content', get_the_content() );
 
@@ -55,8 +54,8 @@ if ( ! function_exists( 'ln_get_jobs' ) ) {
 					$results[ $index ]['job_title']  = get_post_meta( $post_id, 'job_fields_job_title', true );
 					$results[ $index ]['tech']       = get_post_meta( $post_id, 'job_fields_tech', true );
 					$results[ $index ]['about']      = get_post_meta( $post_id, 'job_fields_about', true );
-					$results[ $index ]['logo']      = get_post_meta( $post_id, 'job_fields_logo', true );
-					$results[ $index ]['images']    = get_post_meta( $post_id, 'job_fields_images', true );
+					$results[ $index ]['logo']       = get_post_meta( $post_id, 'job_fields_logo', true );
+					$results[ $index ]['images']     = get_post_meta( $post_id, 'job_fields_images', true );
 				}
 
 				if ( $type === 'work' ) {
@@ -97,7 +96,7 @@ if ( ! function_exists( 'ln_get_item_id' ) ) {
 	 */
 	function ln_get_item_id( $post_id ) {
 		$return = '';
-		$item = get_post($post_id);
+		$item   = get_post( $post_id );
 		$array  = explode( '-', $item->post_name );
 
 		foreach ( $array as $piece ) {
@@ -105,6 +104,19 @@ if ( ! function_exists( 'ln_get_item_id' ) ) {
 		}
 
 		return $return;
+	}
+}
+
+if ( ! function_exists( 'ln_get_item_slug' ) ) {
+	/**
+	 * @param $post_id
+	 *
+	 * @return string
+	 */
+	function ln_get_item_slug( $post_id ) {
+		$item = get_post( $post_id );
+
+		return sanitize_title( $item->post_name );;
 	}
 }
 

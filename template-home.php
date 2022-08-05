@@ -90,7 +90,7 @@ endif; ?>
 									<?php echo $job['title']; ?>
                                 </h3>
                             </div>
-                            <div id="accordion-<?php echo $job['item_id']; ?>"
+                            <div id="accordion-<?php echo $job['item_slug']; ?>"
                                  class="accordion-collapse collapse"
                                  aria-labelledby="accordion<?php echo $job['item_id']; ?>"
                                  data-bs-parent="#accordion<?php echo $job['item_id']; ?>"></div>
