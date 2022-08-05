@@ -291,3 +291,7 @@ hr.dotted {
     background: #64B5F6;
     color: #212121;
 }
+
+code {
+    color: #d15c96 !important;
+}
