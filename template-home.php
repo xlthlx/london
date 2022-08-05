@@ -189,8 +189,8 @@ endif; ?>
 					<?php } ?>
                 </div>
                 <div class="col-md-9 mb-4">
-                    <h3 class="mb-4"><?php echo $job['title']; ?></h3> <h5
-                            class="dark-grey-text"><?php echo $job['text_date']; ?></h5>
+                    <h3 class="mb-4"><?php echo $job['title']; ?></h3>
+                    <h4 class="dark-grey-text"><?php echo $job['text_date']; ?></h4>
 					<?php echo $job['content']; ?>
                 </div>
             </div>
