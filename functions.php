@@ -29,8 +29,7 @@ add_action( 'wp_enqueue_scripts', 'london_core_scripts', 20 );
  * Enqueue admin style.
  */
 function london_admin_theme_style() {
-	wp_enqueue_style( 'admin-style',
-		get_template_directory_uri() . '/assets/css/admin/admin.min.css' );
+	wp_enqueue_style( 'admin-style', get_template_directory_uri() . '/assets/css/admin/admin.min.css' );
 }
 
 add_action( 'admin_enqueue_scripts', 'london_admin_theme_style' );
@@ -40,15 +39,13 @@ add_action( 'admin_enqueue_scripts', 'london_admin_theme_style' );
  *
  * @return void
  */
-function enqueue_editor_scripts() {
-	wp_enqueue_script( 'theme-editor',
-		get_template_directory_uri() . '/assets/js/admin/editor.min.js',
+function london_enqueue_editor_scripts() {
+	wp_enqueue_script( 'theme-editor', get_template_directory_uri() . '/assets/js/admin/editor.min.js',
 		[ 'wp-blocks', 'wp-dom' ],
-		filemtime( get_template_directory() . '/assets/js/admin/editor.min.js' ),
-		true );
+		filemtime( get_template_directory() . '/assets/js/admin/editor.min.js' ), true );
 }
 
-add_action( 'enqueue_block_editor_assets', 'ln_enqueue_editor_scripts' );
+add_action( 'enqueue_block_editor_assets', 'london_enqueue_editor_scripts' );
 
 /**
  * Add pages into feeds.
