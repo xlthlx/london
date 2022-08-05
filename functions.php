@@ -114,3 +114,4 @@ require_once __DIR__ . '/inc/toolkit/toolkit.php';
 require_once __DIR__ . '/inc/template-functions.php';
 require_once __DIR__ . '/inc/template-tags.php';
 require_once __DIR__ . '/inc/minify-html.php';
+require_once __DIR__ . '/inc/dashboard-widgets.php';
