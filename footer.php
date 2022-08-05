@@ -35,8 +35,6 @@
 
 <?php wp_footer(); ?>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
-<script defer data-domain="piccioni.london" src="https://plausible.io/js/script.outbound-links.file-downloads.hash.js"></script>
-<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 <span id="fdd535028a359764030f8e3dc405859e"></span>
 </body>
 </html>
