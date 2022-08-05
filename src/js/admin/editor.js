@@ -1,23 +1,21 @@
 /* globals wp */
 wp.domReady(() => {
   /**
-   * Manage block registration.
+   * Block blacklist.
    */
   const restrictedBlocks = [
     'core/archives',
-    //'core/audio',
-    'core/button',
-    'core/buttons',
+    // 'core/audio',
+    'core/avatar',
+    // 'core/buttons',
     'core/calendar',
     'core/categories',
-    // 'core/classic',
     // 'core/code',
-    'core/column',
     'core/columns',
     'core/cover',
     // 'core/embed',
     // 'core/file',
-    'core/freeform',
+    // 'core/freeform',
     // 'core/gallery',
     'core/group',
     // 'core/heading',
@@ -32,12 +30,15 @@ wp.domReady(() => {
     'core/missing',
     'core/more',
     'core/navigation',
-    'core/navigation-link',
     'core/nextpage',
     'core/page-list',
     // 'core/paragraph',
+    'core/comments-query-loop',
+    'core/pattern',
     'core/post-author',
+    'core/post-author-biography',
     'core/post-comments',
+    'core/post-comments-form',
     'core/post-content',
     'core/post-date',
     'core/post-excerpt',
@@ -46,10 +47,13 @@ wp.domReady(() => {
     'core/post-terms',
     'core/post-title',
     'core/preformatted',
-    'core/pullquote',
+    //'core/pullquote',
     'core/query',
+    'core/query-pagination-previous',
+    'core/query-pagination-next',
     'core/query-title',
     // 'core/quote',
+    'core/read-more',
     'core/rss',
     'core/search',
     // 'core/separator',
@@ -57,17 +61,16 @@ wp.domReady(() => {
     'core/site-logo',
     'core/site-tagline',
     'core/site-title',
-    'core/social-link',
     'core/social-links',
     // 'core/spacer',
-    // 'core/subhead',
     // 'core/table',
     'core/tag-cloud',
+    'core/template-part',
     'core/term-description',
     'core/text-columns',
     'core/verse',
     // 'core/video',
-    // 'core/widget-area'
+    // 'core/widget-area',
   ]
 
   /**
@@ -76,16 +79,17 @@ wp.domReady(() => {
   for (let i = 0, len = restrictedBlocks.length; i < len; i++) {
     wp.blocks.unregisterBlockType(restrictedBlocks[i])
   }
+  ;
 
   /**
-   * Manage embed variations.
+   * List whitelisted embed variations.
    */
   const allowedEmbedBlocks = [
-    'youtube'
+    'spotify', 'twitter', 'vimeo', 'youtube'
   ]
 
   /**
-   * Unregister blocks not included in whitelist.
+   * Unregister variation of embed blocks.
    */
   wp.blocks.getBlockVariations('core/embed').forEach(function (blockVariation) {
     if (allowedEmbedBlocks.indexOf(blockVariation.name) === -1) {
