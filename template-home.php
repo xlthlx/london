@@ -40,8 +40,7 @@ endif; ?>
         </div>
 
         <div class="modal fade" id="containerModal" tabindex="-1"
-             aria-labelledby="containerModalLabel"
-             aria-hidden="true">
+             aria-labelledby="containerModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header border-0 rounded-0">
