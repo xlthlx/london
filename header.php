@@ -59,7 +59,7 @@
                             <li><a href="#wordpress-jobs" class="dropdown-item">WordPress jobs</a></li>
                             <li><a href="#teaching-publications" class="dropdown-item">Teaching and publications</a>
                             </li>
-                            <li><a href="#themes-and-plugins" class="dropdown-item">Themes and plugins</a></li>
+                            <li><a href="#wp-inci" class="dropdown-item">WP INCI</a></li>
                             <li><a href="#contacts" class="dropdown-item">Contacts</a></li>
                         </ul>
                     </li>
