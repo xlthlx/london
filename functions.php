@@ -110,7 +110,7 @@ if ( file_exists( __DIR__ . '/inc/cmb2/cmb2/init.php' ) ) {
 require_once __DIR__ . '/inc/custom-post-types.php';
 require_once __DIR__ . '/inc/custom-fields.php';
 require_once __DIR__ . '/inc/custom-login.php';
-require_once __DIR__ . '/inc/toolkit/toolkit.php';
+require_once __DIR__ . '/inc/toolkit/index.php';
 require_once __DIR__ . '/inc/template-functions.php';
 require_once __DIR__ . '/inc/template-tags.php';
 require_once __DIR__ . '/inc/minify-html.php';
