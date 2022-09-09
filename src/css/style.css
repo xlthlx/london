@@ -295,3 +295,22 @@ hr.dotted {
 code {
     color: #d15c96 !important;
 }
+
+/* Banner */
+
+.banner {
+    padding: 20px;
+    width: 100%;
+    position: relative;
+    border: none;
+    display: block;
+    background-color: #000000;
+    min-height: 30px;
+    font-size: 1em;
+    color: #ffffff;
+    text-align: center;
+}
+
+.banner p {
+    color: #ffffff !important;
+}

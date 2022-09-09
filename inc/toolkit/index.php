@@ -2,7 +2,8 @@
 /**
  * Toolkit.
  *
- * @package  xlthlx
+ * @package WordPress
+ * @subpackage London
  */
 
 require_once ABSPATH . 'wp-admin/includes/file.php';
