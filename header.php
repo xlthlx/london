@@ -41,10 +41,6 @@
 </head>
 <body <?php body_class(); ?>>
 <a class="visually-hidden" href="#content">Skip to main content</a>
-<div class="banner">
-    <h2>Her Majesty Queen Elizabeth II</h2>
-    <p>21 April 1926 &nbsp;&mdash;&nbsp; 8 September 2022</p>
-</div>
 <header>
     <nav class="navbar navbar-expand-md navbar-dark py-3">
         <div class="container">
