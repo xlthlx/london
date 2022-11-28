@@ -2,15 +2,28 @@
   "name": "piccioni.london",
   "version": "1.0.0",
   "description": "piccioni.london theme.",
-  "main": "Gruntfile.js",
   "author": "xlthlx",
+  "keywords": [
+    "WordPress",
+    "Theme"
+  ],
+  "homepage": "https://piccioni.london",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xlthlx/london"
+  },
+  "scripts": {
+    "minify:js": "uglifyjs vendor/twbs/bootstrap/dist/js/bootstrap.bundle.js src/js/scripts.js --compress --mangle --warn --output assets/js/main.min.js && uglifyjs src/js/admin/admin.js --compress --mangle --output assets/js/admin/admin.min.js && uglifyjs src/js/admin/editor.js --compress --mangle --output assets/js/admin/editor.min.js && uglifyjs src/js/admin/login.js vendor/twbs/bootstrap/dist/js/bootstrap.bundle.js --compress --mangle --output assets/js/admin/login.min.js",
+    "minify:css": "cleancss -o assets/css/main.min.css vendor/twbs/bootstrap/dist/css/bootstrap.css src/css/style.css && cleancss -o assets/css/admin/admin.min.css src/css/admin/admin.css && cleancss -o assets/css/admin/login.min.css vendor/twbs/bootstrap/dist/css/bootstrap.css src/css/style.css src/css/admin/login.css",
+    "watch:css": "onchange 'src/css/*.css' -- npm run minify:css",
+    "watch:js": "onchange 'src/js/*.js' -- npm run minify:js",
+    "watch": "run-p watch:*",
+    "build": "npm run minify:css && npm run minify:js"
+  },
   "devDependencies": {
-    "grunt": "^1.5.3",
-    "grunt-contrib-cssmin": "^4.0.0",
-    "grunt-contrib-imagemin": "^4.0.0",
-    "grunt-contrib-jshint": "^3.2.0",
-    "grunt-contrib-uglify": "^5.2.1",
-    "grunt-contrib-watch": "^1.1.0",
-    "jshint-stylish": "^2.2.1"
+    "clean-css-cli": "^5.6.1",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "uglify-js": "^3.17.2"
   }
 }

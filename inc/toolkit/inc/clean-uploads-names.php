@@ -1,25 +1,37 @@
 <?php
 /**
+ * Clean uploads names.
+ *
+ * @package  xlthlx
+ */
+
+/**
  * Clean the filename.
  *
- * @param array The file information including the filename in $file['name'].
+ * @param array $file The file information including the filename in $file['name'].
  *
  * @return array The file information with the cleaned or original filename.
  */
-function wt_upload_filter( $file ) {
+function ln_upload_filter( $file ) {
 
 	$original_filename = pathinfo( $file['name'] );
-	set_transient( '_clean_image_filenames_original_filename',
-		$original_filename['filename'],60 );
+	set_transient(
+		'_clean_image_filenames_original_filename',
+		$original_filename['filename'],
+		60
+	);
 
-	$input = [ 'ß','·', ];
+	$input = array( 'ß', '·' );
 
-	$output = [ 'ss','.' ];
+	$output = array( 'ss', '.' );
 
 	$path         = pathinfo( $file['name'] );
-	$new_filename = preg_replace( '/.' . $path['extension'] . '$/','',
-		$file['name'] );
-	$new_filename = str_replace( $input,$output,$new_filename );
+	$new_filename = preg_replace(
+		'/.' . $path['extension'] . '$/',
+		'',
+		$file['name']
+	);
+	$new_filename = str_replace( $input, $output, $new_filename );
 	$file['name'] = sanitize_title( $new_filename ) . '.' . $path['extension'];
 
 
@@ -29,24 +41,26 @@ function wt_upload_filter( $file ) {
 /**
  * Set attachment title to original filename.
  *
- * @param int Attachment post ID.
+ * @param int $attachment_id Attachment post ID.
  *
- * @since 1.2
+ * @return void
  */
-function wt_update_attachment_title( $attachment_id ) {
+function ln_update_attachment_title( $attachment_id ) {
 
 	$original_filename = get_transient( '_clean_image_filenames_original_filename' );
 
 	if ( $original_filename ) {
-		wp_update_post( [
-			'ID'         => $attachment_id,
-			'post_title' => $original_filename
-		] );
+		wp_update_post(
+			array(
+				'ID'         => $attachment_id,
+				'post_title' => $original_filename,
+			)
+		);
 		delete_transient( '_clean_image_filenames_original_filename' );
 	}
 }
 
 if ( is_admin() ) {
-	add_action( 'wp_handle_upload_prefilter','wt_upload_filter' );
-	add_action( 'add_attachment','wt_update_attachment_title' );
+	add_action( 'wp_handle_upload_prefilter', 'ln_upload_filter' );
+	add_action( 'add_attachment', 'ln_update_attachment_title' );
 }
