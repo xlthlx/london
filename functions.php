@@ -151,5 +151,5 @@ if ( file_exists( dirname( __FILE__ ) . '/inc/cmb2/cmb2/init.php' ) ) {
 	require_once dirname( __FILE__ ) . '/inc/cmb2/cmb2/init.php';
 }
 
-require_once dirname( __FILE__ ) . 'inc/theme/index.php';
-require_once dirname( __FILE__ ) . 'inc/toolkit/index.php';
+require_once dirname( __FILE__ ) . '/inc/theme/index.php';
+require_once dirname( __FILE__ ) . '/inc/toolkit/index.php';
