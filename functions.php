@@ -48,7 +48,7 @@ function ln_enqueue_editor_scripts() {
 	);
 }
 
-add_action( 'enqueue_block_editor_assets', 'ln_enqueue_editor_scripts' );
+//add_action( 'enqueue_block_editor_assets', 'ln_enqueue_editor_scripts' );
 
 /**
  * Add pages into feeds.
