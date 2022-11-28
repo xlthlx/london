@@ -14,9 +14,7 @@ add_filter( 'wpcf7_load_css', '__return_false' );
  * @return void
  */
 function ln_tinymce_enqueue_admin_script() {
-	wp_deregister_script( 'wp-tinymce' );
-	wp_enqueue_script( 'wp-tinymce-root', '/wp-includes/js/tinymce/tinymce.min.js', array(), '1.0' );
-	wp_enqueue_script( 'wp-tinymce', '/wp-includes/js/tinymce/plugins/compat3x/plugin.min.js', array( 'wp-tinymce-root' ), '1.0' );
+	wp_enqueue_script( 'wp-tinymce', '/wp-includes/js/tinymce/plugins/compat3x/plugin.min.js', array( 'wp-tinymce' ), '1.0' );
 }
 
 add_action( 'admin_enqueue_scripts', 'ln_tinymce_enqueue_admin_script' );

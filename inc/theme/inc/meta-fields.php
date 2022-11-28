@@ -24,7 +24,7 @@ function ln_register_job_fields() {
 			),
 			'context'      => 'normal',
 			'priority'     => 'high',
-			'show_in_rest' => WP_REST_Server::ALLMETHODS,
+			'show_in_rest' => true,
 		) 
 	);
 
@@ -130,7 +130,7 @@ function ln_register_job_fields() {
 	);
 }
 
-add_action( 'cmb2_init', 'ln_register_job_fields' );
+add_action( 'cmb2_admin_init', 'ln_register_job_fields' );
 
 /**
  * Register work fields.
@@ -151,7 +151,7 @@ function ln_register_work_fields() {
 			),
 			'context'      => 'normal',
 			'priority'     => 'high',
-			'show_in_rest' => WP_REST_Server::ALLMETHODS,
+			'show_in_rest' => true,
 		) 
 	);
 
@@ -187,7 +187,7 @@ function ln_register_work_fields() {
 
 }
 
-add_action( 'cmb2_init', 'ln_register_work_fields' );
+add_action( 'cmb2_admin_init', 'ln_register_work_fields' );
 
 /**
  * Register themes fields.
@@ -208,7 +208,7 @@ function ln_register_themes_fields() {
 			),
 			'context'      => 'normal',
 			'priority'     => 'high',
-			'show_in_rest' => WP_REST_Server::ALLMETHODS,
+			'show_in_rest' => true,
 		) 
 	);
 
@@ -261,7 +261,7 @@ function ln_register_themes_fields() {
 
 }
 
-add_action( 'cmb2_init', 'ln_register_themes_fields' );
+add_action( 'cmb2_admin_init', 'ln_register_themes_fields' );
 
 /**
  * Register home fields.
@@ -276,7 +276,7 @@ function ln_register_home_fields() {
 			'object_types' => array( 'page' ),
 			'context'      => 'normal',
 			'priority'     => 'high',
-			'show_in_rest' => WP_REST_Server::ALLMETHODS,
+			'show_in_rest' => true,
 		) 
 	);
 
@@ -315,7 +315,7 @@ function ln_register_home_fields() {
 
 }
 
-add_action( 'cmb2_init', 'ln_register_home_fields' );
+add_action( 'cmb2_admin_init', 'ln_register_home_fields' );
 
 /**
  * Shows taxonomy on filter.

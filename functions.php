@@ -15,8 +15,10 @@ add_filter( 'login_display_language_dropdown', '__return_false' );
 function ln_core_scripts() { 
 	wp_dequeue_style( 'wp-block-library' );
 
-	wp_deregister_script( 'jquery' );
-	wp_deregister_script( 'wp-polyfill' );
+	if ( 'http://localhost' !== home_url() && ! is_admin() ) {
+		wp_deregister_script( 'jquery' );
+		wp_deregister_script( 'wp-polyfill' );
+	}
 
 }
 
@@ -39,9 +41,12 @@ add_action( 'admin_enqueue_scripts', 'ln_admin_theme_style' );
  * @return void
  */
 function ln_enqueue_editor_scripts() {
-	wp_enqueue_script( 'theme-editor',
-		get_template_directory_uri() . '/assets/js/admin/editor.min.js', array( 'wp-blocks', 'wp-dom' ),
-		filemtime( get_template_directory() . '/assets/js/admin/editor.min.js' ), true
+	wp_enqueue_script(
+		'theme-editor',
+		get_template_directory_uri() . '/assets/js/admin/editor.min.js',
+		array( 'wp-blocks', 'wp-dom' ),
+		filemtime( get_template_directory() . '/assets/js/admin/editor.min.js' ),
+		true
 	);
 }
 
@@ -142,9 +147,9 @@ add_action( 'after_setup_theme', 'ln_theme_supports' );
 
 require_once 'vendor.phar';
 
-if ( file_exists( 'inc/cmb2/cmb2/init.php' ) ) {
-	include_once 'inc/cmb2/cmb2/init.php';
+if ( file_exists( dirname( __FILE__ ) . '/inc/cmb2/cmb2/init.php' ) ) {
+	require_once dirname( __FILE__ ) . '/inc/cmb2/cmb2/init.php';
 }
 
-require_once 'inc/theme/index.php';
-require_once 'inc/toolkit/index.php';
+require_once dirname( __FILE__ ) . 'inc/theme/index.php';
+require_once dirname( __FILE__ ) . 'inc/toolkit/index.php';
