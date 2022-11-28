@@ -39,16 +39,13 @@ add_action( 'admin_enqueue_scripts', 'ln_admin_theme_style' );
  * @return void
  */
 function ln_enqueue_editor_scripts() {
-	wp_enqueue_script(
-		'theme-editor',
-		get_template_directory_uri() . '/assets/js/admin/editor.min.js',
-		array( 'wp-blocks', 'wp-dom' ),
-		filemtime( get_template_directory() . '/assets/js/admin/editor.min.js' ),
-		true 
+	wp_enqueue_script( 'theme-editor',
+		get_template_directory_uri() . '/assets/js/admin/editor.min.js', array( 'wp-blocks', 'wp-dom' ),
+		filemtime( get_template_directory() . '/assets/js/admin/editor.min.js' ), true
 	);
 }
 
-//add_action( 'enqueue_block_editor_assets', 'ln_enqueue_editor_scripts' );
+add_action( 'enqueue_block_editor_assets', 'ln_enqueue_editor_scripts' );
 
 /**
  * Add pages into feeds.
