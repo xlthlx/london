@@ -143,7 +143,6 @@ containerModal.addEventListener('show.bs.modal', function (event) {
 });
 
 // Service worker
-
 window.addEventListener("load", () => {
     if ("serviceWorker" in navigator) {
         navigator.serviceWorker.register("/service-worker.js");
