@@ -12,9 +12,13 @@ add_filter( 'login_display_language_dropdown', '__return_false' );
  *
  * @return void
  */
-function ln_core_scripts() { 
+function ln_core_scripts() {
+	// Styles.
 	wp_dequeue_style( 'wp-block-library' );
+	wp_deregister_style('classic-theme-styles');
+	wp_dequeue_style('classic-theme-styles');
 
+	// Scripts.
 	if ( 'http://localhost' !== home_url() && ! is_admin() ) {
 		wp_deregister_script( 'jquery' );
 		wp_deregister_script( 'wp-polyfill' );
