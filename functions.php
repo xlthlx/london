@@ -6,6 +6,7 @@
  */
 
 add_filter( 'login_display_language_dropdown', '__return_false' );
+add_filter( 'wpcf7_load_js', '__return_false' );
 
 /**
  *  Enqueue core scripts and core styles.
