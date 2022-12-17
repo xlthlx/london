@@ -16,8 +16,8 @@ add_filter( 'wpcf7_load_js', '__return_false' );
 function ln_core_scripts() {
 	// Styles.
 	wp_dequeue_style( 'wp-block-library' );
-	wp_deregister_style('classic-theme-styles');
-	wp_dequeue_style('classic-theme-styles');
+	wp_deregister_style( 'classic-theme-styles' );
+	wp_dequeue_style( 'classic-theme-styles' );
 
 	// Scripts.
 	if ( 'http://localhost' !== home_url() && ! is_admin() ) {
