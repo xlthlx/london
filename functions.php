@@ -7,6 +7,8 @@
 
 add_filter( 'login_display_language_dropdown', '__return_false' );
 add_filter( 'wpcf7_load_js', '__return_false' );
+add_filter( 'wpcf7_load_css', '__return_false' );
+add_filter( 'enable_post_by_email_configuration', '__return_false' );
 
 /**
  *  Enqueue core scripts and core styles.

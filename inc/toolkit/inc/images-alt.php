@@ -12,7 +12,7 @@
  *
  * @return string The post content filtered.
  */
-function ln_add_image_alt( $content ) {
+function lt_add_image_alt( $content ) {
 	global $post;
 
 	if ( null === $post ) {
@@ -38,6 +38,9 @@ function ln_add_image_alt( $content ) {
 				$attachment = get_post( $attachment[0] );
 				$alt        = get_post_meta( $attachment->ID, '_wp_attachment_image_alt', true );
 				$title      = $attachment->post_title;
+				$post_title = get_post_field( 'post_title', $post->ID );
+
+				$new_img = str_replace( '<img', '<img alt="' . $post_title . '"', $images[0][ $index ] );
 
 				if ( '' !== $alt ) {
 					$new_img = str_replace(
@@ -45,22 +48,14 @@ function ln_add_image_alt( $content ) {
 						'<img alt="' . $alt . '"',
 						$images[0][ $index ]
 					);
-				} else {
-					if ( '' !== $title ) {
-						$new_img = str_replace(
-							'<img',
-							'<img alt="' . $title . '"',
-							$images[0][ $index ]
-						);
-					} else {
-						$post_title = get_the_title( $post->ID );
+				}
 
-						$new_img = str_replace(
-							'<img',
-							'<img alt="' . $post_title . '"',
-							$images[0][ $index ]
-						);
-					}
+				if ( '' === $alt && '' !== $title ) {
+					$new_img = str_replace(
+						'<img',
+						'<img alt="' . $title . '"',
+						$images[0][ $index ]
+					);
 				}
 
 				$content = str_replace( $images[0][ $index ], $new_img, $content );
@@ -75,18 +70,17 @@ function ln_add_image_alt( $content ) {
 	return $content;
 }
 
-add_filter( 'the_content', 'ln_add_image_alt', 9999 );
+add_filter( 'the_content', 'lt_add_image_alt', 9999 );
 
 /**
  * Sets alt attribute for post thumbnails.
  *
- * @param array   $attr Array of attribute values for the image markup, keyed by attribute name.
+ * @param array   $attr       Array of attribute values for the image markup, keyed by attribute name.
  * @param WP_Post $attachment Image attachment post.
  *
  * @return array The attributes filtered.
  */
-function ln_change_image_attr( $attr, $attachment ) {
-
+function lt_change_image_attr( $attr, $attachment ) {
 	$parent = get_post_field( 'post_parent', $attachment );
 	$title  = get_post_field( 'post_title', $parent );
 
@@ -98,8 +92,7 @@ function ln_change_image_attr( $attr, $attachment ) {
 		}
 	}
 
-
 	return $attr;
 }
 
-add_filter( 'wp_get_attachment_image_attributes', 'ln_change_image_attr', 20, 2 );
+add_filter( 'wp_get_attachment_image_attributes', 'lt_change_image_attr', 20, 2 );
