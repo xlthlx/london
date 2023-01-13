@@ -20,9 +20,9 @@ function ln_posts_columns( $columns ) {
 		$columns = array_merge(
 			$columns,
 			array(
-				'thumbs'   => __( 'Thumbnail', 'xlthlx' ),
-				'modified' => __( 'Data ultima modifica', 'xlthlx' ),
-				'date'     => __( 'Date', 'xlthlx' ),
+				'thumbs'   => __( 'Thumbnail', 'london' ),
+				'modified' => __( 'Data ultima modifica', 'london' ),
+				'date'     => __( 'Date', 'london' ),
 			)
 		);
 	}

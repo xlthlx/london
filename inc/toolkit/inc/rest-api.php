@@ -10,14 +10,14 @@
  *
  * @param string $access No idea.
  *
- * @return WP_Error
+ * @return string|WP_Error
  */
 function ln_disable_wp_rest_api( $access ) {
 
 	if ( ! is_user_logged_in() ) {
 		$message = apply_filters(
 			'disable_wp_rest_api_error',
-			__( 'REST API restricted to authenticated users.', 'xlthlx' )
+			__( 'REST API restricted to authenticated users.', 'london' )
 		);
 
 		return new WP_Error(

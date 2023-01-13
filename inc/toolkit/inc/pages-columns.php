@@ -18,9 +18,9 @@ function ln_page_column_views( $columns ) {
 	return array_merge(
 		$columns,
 		array(
-			'page-layout' => __( 'Template', 'xlthlx' ),
-			'modified'    => __( 'Data ultima modifica', 'xlthlx' ),
-			'date'        => __( 'Date', 'xlthlx' ),
+			'page-layout' => __( 'Template', 'london' ),
+			'modified'    => __( 'Data ultima modifica', 'london' ),
+			'date'        => __( 'Date', 'london' ),
 		)
 	);
 
