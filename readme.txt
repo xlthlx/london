@@ -1,4 +1,4 @@
-=== Piccioni London ===
+=== London ===
 Contributors: xlthlx
 Requires at least: 6.1
 Tested up to: 6.1
@@ -9,7 +9,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 == Description ==
 
-Piccioni London is the theme used by [piccioni.london](https://piccioni.london) website.
+London is the theme used by [piccioni.london](https://piccioni.london) website.
 
 == Changelog ==
 
@@ -18,8 +18,8 @@ Piccioni London is the theme used by [piccioni.london](https://piccioni.london) 
 
 == Copyright ==
 
-Piccioni London Theme, (C) 2023 piccioni.london
-Piccioni London is distributed under the terms of the GNU GPL.
+London Theme, (C) 2023 piccioni.london
+London is distributed under the terms of the GNU GPL.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

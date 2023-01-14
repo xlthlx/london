@@ -1,4 +1,4 @@
-# Piccioni London
+# London
 
 ![Version](https://img.shields.io/badge/version-3.0.0-blueviolet) [![License](https://img.shields.io/badge/license-GPL_v3%2B-blueviolet)](https://github.com/xlthlx/piccioni.london/blob/main/LICENSE)
 
@@ -13,7 +13,7 @@
 
 ## Description
 
-Piccioni London is the theme used by [piccioni.london](https://piccioni.london) website.
+London is the theme used by [piccioni.london](https://piccioni.london) website.
 
 ## Changelog
 
@@ -23,8 +23,8 @@ Piccioni London is the theme used by [piccioni.london](https://piccioni.london) 
 
 ## Copyright
 
-Piccioni London Theme, (C) 2023 piccioni.london \
-Piccioni London is distributed under the terms of the GNU GPL.
+London Theme, (C) 2023 piccioni.london \
+London is distributed under the terms of the GNU GPL.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
