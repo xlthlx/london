@@ -23,7 +23,7 @@ London is the theme used by [piccioni.london](https://piccioni.london) website.
 
 ## Copyright
 
-London Theme, (C) 2023 piccioni.london \
+London Theme, (&copy;) 2023 piccioni.london. \
 London is distributed under the terms of the GNU GPL.
 
 This program is free software: you can redistribute it and/or modify
