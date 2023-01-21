@@ -12,7 +12,6 @@
   ],
   "require": {
     "cmb2/cmb2": "^v2.10.1",
-    "composer/installers": "^2.1.1",
     "johnbillion/extended-cpts": "^5.0.2",
     "twbs/bootstrap": "^v5.1.3"
   },
