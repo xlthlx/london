@@ -63,7 +63,7 @@ if ( ! function_exists( 'ln_get_jobs' ) ) {
 					$results[ $index ]['images']    = get_post_meta( $post_id, 'work_fields_images', true );
 				}
 
-				if ( 'themes-and-plugins' === $type ) {
+				if ( 'plugins' === $type ) {
 					$results[ $index ]['wp_url']      = get_post_meta( $post_id, 'themes_fields_wp_url', true );
 					$results[ $index ]['down_url']    = get_post_meta( $post_id, 'themes_fields_down_url', true );
 					$results[ $index ]['github_url']  = get_post_meta( $post_id, 'themes_fields_github_url', true );

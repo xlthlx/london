@@ -285,7 +285,7 @@ endif;
 					</div>
 					<div class="col-md-12 mb-4">
 						<hr class="mb-4 mt-5">
-			<?php echo $job['description']; ?>
+						<?php echo $job['description']; ?>
 					</div>
 
 				</div>
