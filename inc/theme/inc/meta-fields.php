@@ -203,7 +203,7 @@ function ln_register_themes_fields() {
 			'show_on'      => array(
 				'key'   => 'taxonomy',
 				'value' => array(
-					'job_type' => 'themes-and-plugins',
+					'job_type' => 'plugins',
 				),
 			),
 			'context'      => 'normal',
