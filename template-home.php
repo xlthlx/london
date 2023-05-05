@@ -216,9 +216,9 @@ endif;
 		<hr/>
 	</section>
 
-	<section id="wp-inci" class="pt-5">
+	<section id="wordpress-plugins" class="pt-5">
 		<div class="ms-auto text-end">
-			<h2 class="mt-5 mb-3">WordPress Plugin</h2>
+			<h2 class="mt-5 mb-3">WordPress Plugins</h2>
 		</div>
 		<hr class="dotted mb-4 mt-4">
 

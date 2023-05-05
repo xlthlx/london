@@ -295,3 +295,8 @@ hr.dotted {
 code {
     color: #d15c96 !important;
 }
+
+.head-4 {
+    color: #d15c96!important;
+    padding: 2rem 0 1rem 0;
+}
