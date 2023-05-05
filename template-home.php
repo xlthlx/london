@@ -223,7 +223,7 @@ endif;
 		<hr class="dotted mb-4 mt-4">
 
 		<?php 
-		$jobs = ln_get_jobs( 'themes-and-plugins' );
+		$jobs = ln_get_jobs( 'plugins' );
 		foreach ( $jobs as $job ) { 
 			?>
 
