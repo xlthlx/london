@@ -50,7 +50,7 @@
 				<ul class="navbar-nav me-auto mb-2 mb-md-0">
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="dropdown-link" data-bs-toggle="dropdown"
-						   aria-expanded="false">Curriculum vitae</a>
+						   aria-expanded="false">Links</a>
 						<ul class="dropdown-menu" aria-labelledby="dropdown-link">
 							<li><a href="#skills-education" class="dropdown-item">Skills and education</a></li>
 							<li><a href="#work-experience" class="dropdown-item">Work experience</a></li>
@@ -85,11 +85,11 @@
 	</nav>
 </header>
 
-<main class="mt-5 pt-3">
+<main class="mt-3 pt-3">
 	<div id="content" class="container">
 
 		<section class="d-flex my-4">
-			<div class="ms-auto text-end p-3">
+			<div class="ms-auto text-end">
 				<h1>
 					<a class="h1" href="<?php echo get_home_url(); ?>">
 						<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>

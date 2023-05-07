@@ -38,7 +38,6 @@ b, strong {
 
 h2 {
     font-weight: 500;
-    text-transform: uppercase;
     color: #fff;
 }
 
@@ -297,6 +296,18 @@ code {
 }
 
 .head-4 {
-    color: #d15c96!important;
+    color: #d15c96 !important;
     padding: 2rem 0 1rem 0;
+}
+
+.accordion-button:not(.collapsed) {
+    box-shadow: none !important;
+    border-bottom: 1px solid #535456 !important;
+    padding-bottom: 2.5rem !important;
+}
+
+@media (min-width: 1200px) {
+    .accordion-button {
+        font-size: 1.5rem !important;
+    }
 }

@@ -20,15 +20,14 @@ if ( have_posts() ) :
 					<?php the_content(); ?>
 				</div>
 			</div>
-			<hr class="mt-5"/>
 		</section>
 	<?php
 	endwhile;
 endif;
 
-get_template_part( 'partial/section-skills-education' );
 get_template_part( 'partial/section-work-experience' );
 get_template_part( 'partial/section-wordpress-jobs' );
+get_template_part( 'partial/section-skills-education' );
 get_template_part( 'partial/section-teaching-publications' );
 get_template_part( 'partial/section-wordpress-plugins' );
 get_template_part( 'partial/section-contacts' );

@@ -1,42 +1,19 @@
-<section id="wordpress-jobs" class="pt-5">
-	<div class="ms-auto text-end"><h2 class="mt-5 mb-3">WordPress jobs</h2></div>
-	<hr class="dotted mb-5 mt-4">
-	<p class="text-end">Contract websites projects</p>
-	<?php
-	$jobs = ln_get_jobs( 'work' );
-	foreach ( $jobs as $job ) {
-		?>
-		<hr class="mb-5 mt-4">
-		<div class="row mt-3">
-			<div class="col-md-3 mb-4">
-				<?php if ( ! empty( $job['logo'] ) ) { ?>
-					<picture>
-						<img loading="lazy" width="300" height="225" src="<?php echo $job['logo']; ?>"
-						     class="img-fluid" alt="<?php echo $job['title']; ?>"/>
-					</picture>
-				<?php } ?>
-				<?php if ( ! empty( $job['images'] ) ) { ?>
-					<picture>
-						<img loading="lazy" width="300" height="225" src="<?php echo $job['first_image']; ?>"
-						     class="img-fluid cursor" alt="<?php echo $job['first_image_alt']; ?>"
-						     data-ref="modal<?php echo $job['item_id']; ?>" data-id="<?php echo $job['ID']; ?>">
-					</picture>
-					<p class="text-center mt-4 pt-3 mb-0">
-					<span data-ref="modal<?php echo $job['item_id']; ?>" role="button"
-					      data-id="<?php echo $job['ID']; ?>"
-					      class="btn btn-outline-light btn-lg fs-6 px-5 rounded-0">view</span>
-					</p>
-					<div id="modal<?php echo $job['item_id']; ?>" class="modal fade border-0 rounded-0"
-					     tabindex="-1" aria-labelledby="modal" aria-hidden="true">
-					</div>
-				<?php } ?>
+<section id="wordpress-jobs" class="pt-0">
+
+	<div class="accordion bg-black col-md-12 mb-4" id="accordion-wordpress-jobs">
+		<div class="accordion-item border-0 no-border-radius bg-black">
+			<div class="accordion-header border-0 no-border-radius bg-black mt-4 mb-3" id="accordion-wordpress-jobs-heading">
+				<h2 class="accordion-button collapsed bg-black border-0 no-border-radius px-0 cursor"
+				    data-bs-toggle="collapse" data-id="wordpress-jobs" data-show="wordpress-jobs"
+				    data-bs-target="#accordion-wp-jobs" aria-expanded="false"
+				    aria-controls="accordion-wp-jobs">
+						WordPress Jobs
+				</h2>
 			</div>
-			<div class="col-md-9 mb-4">
-				<h3 class="mb-4"><?php echo $job['title']; ?></h3>
-				<h4 class="h5 dark-grey-text"><?php echo $job['text_date']; ?></h4>
-				<?php echo $job['content']; ?>
+			<div id="accordion-wp-jobs" class="accordion-collapse collapse"
+			     aria-labelledby="accordion-wordpress-jobs" data-bs-parent="#accordion-wordpress-jobs">
 			</div>
 		</div>
-	<?php } ?>
-	<hr/>
+	</div>
+	<hr class="mb-0 mt-0">
 </section>

@@ -83,18 +83,15 @@ function showModal(name) {
     xhttp.send();
 }
 
-let refData = document.querySelectorAll("[data-ref]");
-refData.forEach(setEventClick);
+document.getElementById("content").addEventListener("click", function (event) {
+    if (event.target.hasAttribute("data-ref")) {
+        event.preventDefault();
+        showModal(event.target);
+    }
+});
 
-function setEventClick(item) {
-    item.addEventListener('click', function (e) {
-        e.preventDefault();
-        showModal(item);
-    });
-}
-
-// About the company
-let targetData = document.querySelectorAll("[data-bs-target]");
+// Show content
+let targetData = document.querySelectorAll("[data-show]");
 targetData.forEach(setDataClick);
 
 function setDataClick(item, index, arr) {
@@ -112,7 +109,7 @@ function setDataClick(item, index, arr) {
                     document.getElementById(aboutId).innerHTML = this.responseText;
                 }
             };
-            xhttp.open("GET", "/wp-content/themes/london/partial/about.php?id=" + ID, true);
+            xhttp.open("GET", "/wp-content/themes/london/partial/show.php?id=" + ID, true);
             xhttp.send();
         }
     });
@@ -148,3 +145,19 @@ window.addEventListener("load", () => {
         navigator.serviceWorker.register("/service-worker.js");
     }
 });
+
+
+let targetLinks = document.querySelectorAll(".dropdown-item");
+targetLinks.forEach(setToggle);
+
+let internalLinks = document.querySelectorAll(".internal");
+internalLinks.forEach(setToggle);
+
+function setToggle(item) {
+    item.addEventListener('click', function (event) {
+        let strId = event.target.getAttribute("href");
+        let toggleId = strId.replace("#", "");
+        let bsToggle = document.body.querySelector('[data-bs-parent="#accordion-' + toggleId + '"]')
+        bsToggle.classList.add("show")
+    });
+}
