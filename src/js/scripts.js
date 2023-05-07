@@ -157,7 +157,7 @@ function setToggle(item) {
     item.addEventListener('click', function (event) {
         let strId = event.target.getAttribute("href");
         let toggleId = strId.replace("#", "");
-        let bsToggle = document.body.querySelector('[data-bs-parent="#accordion-' + toggleId + '"]')
-        bsToggle.classList.add("show")
+        let bsToggle = document.body.querySelector('[data-id="' + toggleId + '"]')
+        bsToggle.click()
     });
 }
