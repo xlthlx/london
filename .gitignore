@@ -5,26 +5,24 @@
 # Do NOT ignore .gitignore
 !.gitignore
 
-# Do NOT ignore .gitattributes
-!.gitattributes
-
 # Do NOT ignore .distignore
 !.distignore
+
+# Do NOT ignore .readme.md
+!README.md
 
 # Do NOT ignore .circleci
 !.circleci
 
-# Do NOT ignore .editorconfig
-!.editorconfig
-
-# Do NOT ignore .README.md
-!README.md
+# Do NOT ignore .wp-env.json
+!.wp-env.json
 
 # Ignore all files that start with ~
 ~*
 
 # Ignore packaged files
 *.7z
+*.csv
 *.dmg
 *.gz
 *.iso
@@ -32,10 +30,13 @@
 *.rar
 *.tar
 *.zip
+*.sql
+*.tar.gz
 
 # Ignore OS generated files
 ehthumbs.db
 Thumbs.db
+.DS_Store
 
 # Ignore log files
 *.log
@@ -43,10 +44,12 @@ Thumbs.db
 # Ignore lock files
 *.lock
 
-# Ignore build Tools
-/_root
-/node_modules
-/vendor
+# Build Tools
 .idea
 package-lock.json
-phpcs.xml.dist
+/node_modules
+/vendor
+
+# Project specific
+/_root
+/content
