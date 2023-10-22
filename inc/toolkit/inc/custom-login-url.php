@@ -211,7 +211,7 @@ function ln_new_login_url( $scheme = null ) {
 		);
 	}
 
-	return home_url( '/', $scheme ) . '?' . $_GET['ln_login'];
+	return home_url( '/', $scheme ) . '?' . $ln_login;
 }
 
 /**
