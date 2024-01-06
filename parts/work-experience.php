@@ -49,7 +49,7 @@ global $n, $job; ?>
 			<figure class="wp-block-media-text__media">
 				<img data-ref="modal<?php echo $job['item_id']; ?>" data-id="<?php echo $job['ID']; ?>" decoding="async" width="300" height="225" src="<?php echo $job['first_image']; ?>"
 					 alt="<?php echo $job['first_image_alt']; ?>" class="size-full cursor"/>
-				<p class="text-center mt-3 pt-0 mb-3">
+				<p class="text-md-center mt-md-3 pt-0 mb-3 pb-3">
 					<span data-ref="modal<?php echo $job['item_id']; ?>"
 						  role="button" data-id="<?php echo $job['ID']; ?>"
 						  class="btn btn-outline-light btn-lg fs-6 px-5 rounded-0">view</span>
@@ -94,7 +94,7 @@ global $n, $job; ?>
 			<figure class="wp-block-media-text__media">
 				<img data-ref="modal<?php echo $job['item_id']; ?>" data-id="<?php echo $job['ID']; ?>" decoding="async" width="300" height="225" src="<?php echo $job['first_image']; ?>"
 					 alt="<?php echo $job['first_image_alt']; ?>" class="size-full cursor"/>
-				<p class="text-center mt-3 pt-0 mb-3">
+				<p class="text-md-center mt-md-3 pt-0 mb-3 pb-3">
 				<span data-ref="modal<?php echo $job['item_id']; ?>"
 					  role="button" data-id="<?php echo $job['ID']; ?>"
 					  class="btn btn-outline-light btn-lg fs-6 px-5 rounded-0">view</span>

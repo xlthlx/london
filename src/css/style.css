@@ -342,3 +342,17 @@ body .is-layout-flex {
 .wp-block-media-text:not(.has-media-on-the-right) {
     grid-template-columns: auto 1fr !important;
 }
+
+@media (max-width: 781px) {
+    :where(body .is-layout-flow) > :first-child:first-child {
+        padding-bottom: var(--wp--preset--spacing--50);
+    }
+
+    .wp-block-media-text__media img{
+        padding-bottom: var(--wp--preset--spacing--50);
+    }
+
+    .wp-block-media-text .wp-block-media-text__content {
+        padding-left: 0 !important;
+    }
+}
