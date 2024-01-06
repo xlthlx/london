@@ -1,10 +1,10 @@
-// Smooth scroll to top
+// Smooth scroll to top.
 document.getElementById('top-arrow').addEventListener('click', function (e) {
     e.preventDefault();
     window.scrollTo({top: 0, behavior: 'smooth'});
 });
 
-// Show and hide on scroll
+// Show and hide on scroll.
 window.addEventListener('scroll', () => {
     let scroll = this.scrollY;
     let arrow = document.getElementById('top-arrow');
@@ -29,7 +29,7 @@ window.addEventListener('scroll', () => {
 });
 
 
-// Lightbox
+// Lightbox.
 let slideIndex;
 
 function prevNext(n) {
@@ -38,7 +38,7 @@ function prevNext(n) {
 
 function showSlide(n) {
     let i;
-    let slides = document.getElementsByClassName("mySlides");
+    let slides = document.getElementsByClassName("slides");
     let captionText = document.getElementById("caption");
     let numberText = document.getElementById("number");
     if (n > slides.length) {
@@ -78,7 +78,7 @@ function showModal(name) {
             });
         }
     };
-    xhttp.open("GET", "/wp-content/themes/london/partial/lightbox.php?id=" + ID, true);
+    xhttp.open("GET", "/wp-content/themes/london/parts/lightbox.php?id=" + ID, true);
     xhttp.withCredentials = true;
     xhttp.send();
 }
@@ -90,7 +90,7 @@ document.getElementById("content").addEventListener("click", function (event) {
     }
 });
 
-// Show content
+// Show content.
 let targetData = document.querySelectorAll("[data-show]");
 targetData.forEach(setDataClick);
 
@@ -109,43 +109,39 @@ function setDataClick(item, index, arr) {
                     document.getElementById(aboutId).innerHTML = this.responseText;
                 }
             };
-            xhttp.open("GET", "/wp-content/themes/london/partial/show.php?id=" + ID, true);
+            xhttp.open("GET", "/wp-content/themes/london/parts/show.php?id=" + ID, true);
             xhttp.send();
         }
     });
 }
 
 // data-bs-toggle="modal" data-bs-target="#containerModal"
+// Opens in modal links with the specified target and toggle.
 let containerModal = document.getElementById('containerModal');
-containerModal.addEventListener('show.bs.modal', function (event) {
-    let link = event.relatedTarget;
 
-    let link_source = link.getAttribute('href');
-    let link_alt = link.getAttribute('title');
-    let pdf_src = link_source.includes(".pdf");
+if (typeof (containerModal) !== 'undefined' && containerModal !== null) {
+    containerModal.addEventListener('show.bs.modal', function (event) {
+        let link = event.relatedTarget;
 
-    let modalBodyImg = containerModal.querySelector('#inlineFrameImg');
-    let modalBodyIframe = containerModal.querySelector('#inlineFramePdf');
-    if (pdf_src === true) {
-        modalBodyIframe.src = link_source;
-        modalBodyIframe.title = link_alt;
-        modalBodyIframe.style.display = "block";
-        modalBodyImg.style.display = "none";
-    } else {
-        modalBodyImg.src = link_source;
-        modalBodyImg.alt = link_alt;
-        modalBodyImg.style.display = "block";
-        modalBodyIframe.style.display = "none";
-    }
-});
+        let link_source = link.getAttribute('href');
+        let link_alt = link.getAttribute('title');
+        let pdf_src = link_source.includes(".pdf");
 
-// Service worker
-window.addEventListener("load", () => {
-    if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("/service-worker.js");
-    }
-});
-
+        let modalBodyImg = containerModal.querySelector('#inlineFrameImg');
+        let modalBodyIframe = containerModal.querySelector('#inlineFramePdf');
+        if (pdf_src === true) {
+            modalBodyIframe.src = link_source;
+            modalBodyIframe.title = link_alt;
+            modalBodyIframe.style.display = "block";
+            modalBodyImg.style.display = "none";
+        } else {
+            modalBodyImg.src = link_source;
+            modalBodyImg.alt = link_alt;
+            modalBodyImg.style.display = "block";
+            modalBodyIframe.style.display = "none";
+        }
+    });
+}
 
 let targetLinks = document.querySelectorAll(".dropdown-item");
 targetLinks.forEach(setToggle);

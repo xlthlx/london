@@ -1,9 +1,9 @@
 === London ===
 Contributors: xlthlx
-Requires at least: 6.1
-Tested up to: 6.2
+Requires at least: 6.4
+Tested up to: 6.4
 Requires PHP: 7.4
-Stable tag: 3.0
+Stable tag: 4.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -13,7 +13,7 @@ London is the theme used by [piccioni.london](https://piccioni.london) website.
 
 == Changelog ==
 
-= 3.0 =
+= 4.0 =
 * Latest release
 
 == Copyright ==

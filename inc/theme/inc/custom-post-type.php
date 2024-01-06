@@ -20,7 +20,7 @@ function ln_register_post_type() {
 			'menu_icon'           => 'dashicons-hammer',
 			'capability_type'     => 'page',
 			'supports'            => array( 'title', 'editor', 'revisions', 'page-attributes' ),
-			'publicly_queryable'  => false,
+			'publicly_queryable'  => true,
 			'admin_cols'          => array(
 				'title'         => array(
 					'title' => 'Company',
@@ -28,6 +28,11 @@ function ln_register_post_type() {
 				'job_type'      => array(
 					'title'    => 'Type',
 					'taxonomy' => 'job_type',
+					'link'     => 'edit',
+				),
+				'job_role'      => array(
+					'title'    => 'Job Role',
+					'taxonomy' => 'job_role',
 					'link'     => 'edit',
 				),
 				'order'         => array(
@@ -45,6 +50,10 @@ function ln_register_post_type() {
 				),
 			),
 			'admin_filters'       => array(
+				'job_role' => array(
+					'title'    => 'Role',
+					'taxonomy' => 'job_role',
+				),
 				'job_type' => array(
 					'title'    => 'Type',
 					'taxonomy' => 'job_type',
@@ -60,6 +69,16 @@ function ln_register_post_type() {
 
 	register_extended_taxonomy(
 		'job_type',
+		'job',
+		array(
+			'show_ui'  => true,
+			'meta_box' => 'dropdown',
+			'required' => true,
+		)
+	);
+
+	register_extended_taxonomy(
+		'job_role',
 		'job',
 		array(
 			'show_ui'  => true,

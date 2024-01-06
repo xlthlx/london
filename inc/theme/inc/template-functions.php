@@ -5,86 +5,6 @@
  * @package London
  */
 
-add_filter( 'wpcf7_load_js', '__return_false' );
-add_filter( 'wpcf7_load_css', '__return_false' );
-
-/**
- * Add plugin to TinyMCE.
- *
- * @return void
- */
-function ln_tinymce_enqueue_admin_script() {
-	wp_enqueue_script( 'wp-tinymce', '/wp-includes/js/tinymce/plugins/compat3x/plugin.min.js', array( 'wp-tinymce' ), '1.0' );
-}
-
-add_action( 'admin_enqueue_scripts', 'ln_tinymce_enqueue_admin_script' );
-
-/**
- * Replace YouTube.com with the no cookie version.
- *
- * @param string $return The returned oEmbed HTML.
- * @param object $data A data object result from an oEmbed provider.
- *
- * @return string
- */
-function ln_youtube_oembed_filters( $return, $data ) {
-	if ( false === $return || ! in_array(
-		$data->type,
-		array( 'rich', 'video' ),
-		true 
-	) 
-	) {
-		return $return;
-	}
-
-	if ( false !== strpos( $return, 'youtube' ) || false !== strpos(
-		$return,
-		'youtu.be' 
-	) 
-	) {
-		$return = str_replace(
-			'youtube.com/embed',
-			'youtube-nocookie.com/embed',
-			$return
-		);
-	}
-
-	return $return;
-}
-
-add_filter( 'oembed_dataparse', 'ln_youtube_oembed_filters', 99, 3 );
-
-/**
- * Clean the oembed cache.
- *
- * @return int
- */
-function ln_clean_oembed_cache() {
-	$GLOBALS['wp_embed']->usecache = 0;
-	do_action( 'wpse_do_cleanup' );
-
-	return 0;
-}
-
-add_filter( 'oembed_ttl', 'ln_clean_oembed_cache' );
-
-/**
- * Restore the oembed cache.
- *
- * @param bool $enable Whether to enable <link> tag discovery. Default true.
- *
- * @return bool
- */
-function ln_restore_oembed_cache( $enable ) {
-	if ( 1 === did_action( 'wpse_do_cleanup' ) ) {
-		$GLOBALS['wp_embed']->usecache = 1;
-	}
-
-	return $enable;
-}
-
-add_filter( 'embed_oembed_discover', 'ln_restore_oembed_cache' );
-
 /**
  * Insert minified CSS into header.
  *
@@ -109,6 +29,26 @@ function ln_insert_scripts() {
 	$script = ln_get_file_content( $file );
 
 	echo '<script type="text/javascript">' . $script . '</script>';
+
+	$dir           = ABSPATH . 'wp-content/plugins/contact-form-7/';
+	$first_script  = ln_get_file_content( $dir . '/includes/swv/js/index.js' );
+	$second_script = ln_get_file_content( $dir . '/includes/js/index.js' );
+	$rest_url      = str_replace( '/', '\\/', ( esc_url( get_rest_url() ) ) );
+
+	$cf7 = '
+<script id="cf7">' . $first_script;
+
+	$cf7 .= '
+/* <![CDATA[ */
+var wpcf7 = {"api":{"root":"' . $rest_url . '","namespace":"contact-form-7\/v1"}};
+/* ]]> */
+';
+	$cf7 .= $second_script;
+	$cf7 .= '
+!function(){var s,o=document.body,e="className",a="customize-support",c=RegExp("(^|\\s+)(no-)?"+a+"(\\s+|$)");s=!0,o[e]=o[e].replace(c," "),o[e]+=(window.postMessage&&s?" ":" no-")+a}();</script>
+';
+
+	echo $cf7;
 }
 
 add_action( 'wp_footer', 'ln_insert_scripts' );
@@ -129,19 +69,96 @@ function ln_404_plausible() {
 add_action( 'wp_head', 'ln_404_plausible' );
 
 /**
- * Add icons into admin.
+ * Removes WP Logo and comments in the admin bar.
  *
  * @return void
  */
-function ln_add_admin_icons() {     
-	?>
-	<?php // @codingStandardsIgnoreStart ?>
-	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/icons/favicon.ico" sizes="any">
-	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/icons/icon.svg" type="image/svg+xml">
-	<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/icons/apple-touch-icon.png">
-	<?php // @codingStandardsIgnoreEnd ?>
-	<?php 
+function ln_remove_admin_bar_wp_logo() {
+	global $wp_admin_bar;
+	$wp_admin_bar->remove_node( 'wp-logo' );
+	$wp_admin_bar->remove_node( 'comments' );
 }
 
-add_action( 'login_head', 'ln_add_admin_icons' );
-add_action( 'admin_head', 'ln_add_admin_icons' );
+add_action( 'wp_before_admin_bar_render', 'ln_remove_admin_bar_wp_logo', 20 );
+
+/**
+ * Change the title separator.
+ *
+ * @return string
+ */
+function ln_document_title_separator() {
+	return '|';
+}
+
+add_filter( 'document_title_separator', 'ln_document_title_separator' );
+
+/**
+ * Wrap the image with picture tag to support webp.
+ *
+ * @param string   $html HTML img element or empty string on failure.
+ * @param int      $attachment_id Image attachment ID.
+ * @param string   $size Requested image size.
+ * @param bool     $icon Whether the image should be treated as an icon.
+ * @param string[] $attr Attributes for the image markup.
+ *
+ * @return string
+ */
+function ln_wrap_image_with_picture( $html, $attachment_id, $size, $icon, $attr ) {
+	if ( is_admin() ) {
+		return $html;
+	}
+
+	$type = get_post_mime_type( $attachment_id );
+
+	if ( ! $icon ) {
+		$webp_src = preg_replace( '/(?:jpg|png|jpeg)$/i', 'webp', $attr['src'] );
+
+		$html = '<picture>
+			  <source srcset="' . $webp_src . '" type="image/webp">
+			  <source srcset="' . $attr['src'] . '" type="' . $type . '">
+			  ' . $html . '
+			</picture>';
+	}
+
+	return $html;
+}
+
+add_filter( 'wp_get_attachment_image', 'ln_wrap_image_with_picture', 10, 5 );
+
+/**
+ * Wrap the image with picture tag to support webp.
+ *
+ * @param string $filtered_image Full img tag with attributes that will replace the source img tag.
+ * @param string $context Additional context, like the current filter name or the function name from where this was called.
+ * @param int    $attachment_id Image attachment ID.
+ *
+ * @return string
+ */
+function ln_image_with_picture( $filtered_image, $context, $attachment_id ) {
+	if ( is_admin() ) {
+		return $filtered_image;
+	}
+
+	$type = get_post_mime_type( $attachment_id );
+
+	preg_match( '/width="([^"]+)/i', $filtered_image, $width, PREG_OFFSET_CAPTURE );
+	preg_match( '/height="([^"]+)/i', $filtered_image, $height, PREG_OFFSET_CAPTURE );
+	if ( isset( $width[1], $height[1] ) ) {
+		$size = array( $width[1][0], $height[1][0] );
+	} else {
+		$size = 'full';
+	}
+
+	$img_src  = wp_get_attachment_image_url( $attachment_id, $size );
+	$webp_src = preg_replace( '/(?:jpg|png|jpeg)$/i', 'webp', $img_src );
+
+	$filtered_image = '<picture>
+			  <source srcset="' . $webp_src . '" type="image/webp">
+			  <source srcset="' . $img_src . '" type="' . $type . '">
+			  ' . $filtered_image . '
+			</picture>';
+
+	return $filtered_image;
+}
+
+add_filter( 'wp_content_img_tag', 'ln_image_with_picture', 10, 3 );

@@ -10,7 +10,7 @@
 </div>
 </main>
 
-<footer class="fixed-bottom">
+<footer>
 	<div class="footer-copyright py-2 text-end">
 
 		<div class="container">
@@ -32,6 +32,25 @@
 
 	</div>
 </footer>
+
+
+<div class="modal fade" id="containerModal" tabindex="-1"
+	 aria-labelledby="containerModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header border-0 rounded-0">
+				<button type="button" class="btn-close border-0 rounded-0"
+						data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<img id="inlineFrameImg" src="" alt=""/>
+				<?php // @codingStandardsIgnoreStart ?>
+                <iframe id="inlineFramePdf" src=""></iframe>
+				<?php // @codingStandardsIgnoreEnd ?>
+			</div>
+		</div>
+	</div>
+</div>
 
 <?php wp_footer(); ?>
 <span id="fdd535028a359764030f8e3dc405859e"></span>

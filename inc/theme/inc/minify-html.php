@@ -2,7 +2,7 @@
 /**
  * Minify HTML.
  *
- * @package London
+ * @package  xlthlx
  */
 
 /**
@@ -10,12 +10,12 @@
  *
  * @return void
  */
-function ln_init_minify_html() {
-	ob_start( 'ln_minify_html_output' );
+function xlt_init_minify_html() {
+	ob_start( 'xlt_minify_html_output' );
 }
 
 if ( ! ( defined( 'WP_CLI' ) && WP_CLI ) && ! is_admin() && ! is_user_logged_in() ) {
-	add_action( 'init', 'ln_init_minify_html', 1 );
+	add_action( 'init', 'xlt_init_minify_html', 1 );
 }
 
 /**
@@ -25,7 +25,7 @@ if ( ! ( defined( 'WP_CLI' ) && WP_CLI ) && ! is_admin() && ! is_user_logged_in(
  *
  * @return array|string|string[]
  */
-function ln_minify_html_output( $buffer ) {
+function xlt_minify_html_output( $buffer ) {
 	if ( 0 === strpos( ltrim( $buffer ), '<?xml' ) ) {
 		return ( $buffer );
 	}

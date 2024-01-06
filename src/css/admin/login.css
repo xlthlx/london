@@ -1,16 +1,16 @@
 body {
-    font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
-    font-weight: 300
+    font-family: "JetBrains Mono", monospace !important;
+    font-size: 1.3rem !important;
 }
 
 html, body {
     height: 100%;
-    background-color: #1a1b1e
+    color: #E5E5E5 !important;
+    background-color: #1A1B1E !important;
 }
 
-a, a:hover {
-    color: #00171f;
-    text-decoration: none
+a {
+    color: #64B5F6 !important;
 }
 
 .login h1 {
@@ -26,54 +26,42 @@ a, a:hover {
     background-size: unset;
     background-position: unset;
     background-repeat: unset;
-    color: #FFF;
+    color: #FFFFFF;
     height: auto;
     font-size: 2.8rem;
-    font-weight: 300;
     width: 100%;
     font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
 }
 
 .login #backtoblog a:hover, .login #nav a:hover, .login h1 a:hover {
-    color: #fff;
+    color: #FFFFFF;
     text-decoration: underline
 }
 
 .login #backtoblog a, .login #nav a {
     text-decoration: underline;
-    color: #fff
+    color: #FFFFFF
 }
 
 .login #backtoblog, .privacy-policy-page-link, .grecaptcha-badge {
     display: none !important
 }
 
-body {
-    color: #1a1b1e
-}
-
-a {
-    color: #fff
-}
-
 a:hover, a:active {
-    color: #fff;
     text-decoration: underline
 }
 
 a:focus {
-    color: #fff;
     box-shadow: none
 }
 
 #login {
-    width: 100%;
+    width: 500px;
     text-align: center;
     margin: 0 auto
 }
 
 .login .message, .login .success, .login #login_error {
-    border-left: 4px solid #616161;
     width: 320px;
     margin: 20px auto
 }
@@ -85,22 +73,22 @@ a:focus {
 }
 
 .login .button.button-secondary:focus {
-    border-color: #fff;
+    border-color: #FFFFFF;
     box-shadow: none
 }
 
 .login #nav a, .login #backtoblog a {
-    color: #fff;
+    color: #FFFFFF;
     text-decoration: none
 }
 
 .login #nav a:hover, .login #backtoblog a:hover, .login h1 a:hover {
-    color: #fff;
+    color: #FFFFFF;
     text-decoration: underline
 }
 
 .login #nav a:focus, .login #backtoblog a:focus, .login h1 a:focus {
-    color: #fff
+    color: #FFFFFF
 }
 
 .login label {
@@ -122,14 +110,13 @@ a:focus {
 }
 
 .form-control:focus {
-    border-color: #616161;
+    border-color: #939292;
     outline: 0;
     box-shadow: none
 }
 
 .login form .input, .login input[type=text], .login input[type=password] {
     font-size: 1rem;
-    width: 257px;
     padding: 8px;
     margin: 2px 0 16px;
     border: 0;
@@ -164,13 +151,9 @@ a:focus {
 }
 
 .login form {
-    padding: 26px 24px;
-    background: #1a1b1e !important;
+    background: #1A1B1E !important;
     border: none;
     box-shadow: none !important;
-    font-weight: 300;
-    width: 320px;
-    margin: 20px auto 0
 }
 
 p.forgetmenot label {

@@ -45,5 +45,6 @@ node_modules
 vendor
 
 # Project specific
-content
 _root
+wp-content
+img

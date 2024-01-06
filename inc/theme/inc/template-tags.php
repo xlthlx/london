@@ -7,24 +7,15 @@
 
 if ( ! function_exists( 'ln_get_jobs' ) ) {
 	/**
-	 * Gets job list.
-	 *
-	 * @param string $type The job type.
+	 * Gets jobs list.
 	 *
 	 * @return array
 	 */
-	function ln_get_jobs( $type ) {
+	function ln_get_jobs() {
 
 		$args = array(
 			'post_type' => 'job',
 			'nopaging'  => true,
-			'tax_query' => array(
-				array(
-					'taxonomy' => 'job_type',
-					'field'    => 'slug',
-					'terms'    => $type,
-				),
-			),
 			'orderby'   => 'menu_order',
 			'order'     => 'DESC',
 		);
@@ -40,6 +31,14 @@ if ( ! function_exists( 'ln_get_jobs' ) ) {
 				$post_id = get_the_ID();
 				$index   = $the_query->current_post;
 
+				$job_types                 = get_the_terms( $post_id, 'job_type' );
+				$type                      = '';
+				$results[ $index ]['type'] = '';
+				if ( $job_types && ! is_wp_error( $job_types ) ) {
+					$type                      = $job_types[0]->slug;
+					$results[ $index ]['type'] = $type;
+				}
+
 				$results[ $index ]['ID']        = $post_id;
 				$results[ $index ]['title']     = get_the_title();
 				$results[ $index ]['item_slug'] = ln_get_item_slug( $post_id );
@@ -47,10 +46,15 @@ if ( ! function_exists( 'ln_get_jobs' ) ) {
 				$results[ $index ]['content']   = apply_filters( 'the_content', get_the_content() );
 
 				if ( 'job' === $type ) {
-					$results[ $index ]['start_date'] = date( 'm/Y', strtotime( get_post_meta( $post_id, 'job_fields_start_date', true ) ) );
-					$results[ $index ]['end_date']   = ( '' === get_post_meta( $post_id, 'job_fields_end_date', true ) ) ? 'present' : date( 'm/Y', strtotime( get_post_meta( $post_id, 'job_fields_end_date', true ) ) );
+					$terms                          = get_the_terms( get_the_ID(), 'job_role' );
+					$results[ $index ]['job_title'] = '';
+					if ( $terms && ! is_wp_error( $terms ) ) {
+						$results[ $index ]['job_title'] = $terms[0]->name;
+					}
+
+					$results[ $index ]['start_date'] = date( 'm/Y', (int) get_post_meta( $post_id, 'job_fields_start_date', true ) );
+					$results[ $index ]['end_date']   = ( '' === get_post_meta( $post_id, 'job_fields_end_date', true ) ) ? 'present' : date( 'm/Y', (int) get_post_meta( $post_id, 'job_fields_end_date', true ) );
 					$results[ $index ]['location']   = get_post_meta( $post_id, 'job_fields_location', true );
-					$results[ $index ]['job_title']  = get_post_meta( $post_id, 'job_fields_job_title', true );
 					$results[ $index ]['tech']       = get_post_meta( $post_id, 'job_fields_tech', true );
 					$results[ $index ]['about']      = get_post_meta( $post_id, 'job_fields_about', true );
 					$results[ $index ]['logo']       = get_post_meta( $post_id, 'job_fields_logo', true );
@@ -58,17 +62,9 @@ if ( ! function_exists( 'ln_get_jobs' ) ) {
 				}
 
 				if ( 'work' === $type ) {
-					$results[ $index ]['text_date'] = date( 'F Y', strtotime( get_post_meta( $post_id, 'work_fields_text_date', true ) ) );
+					$results[ $index ]['text_date'] = date( 'F Y', (int) get_post_meta( $post_id, 'work_fields_text_date', true ) );
 					$results[ $index ]['logo']      = get_post_meta( $post_id, 'work_fields_logo', true );
 					$results[ $index ]['images']    = get_post_meta( $post_id, 'work_fields_images', true );
-				}
-
-				if ( 'plugins' === $type ) {
-					$results[ $index ]['wp_url']      = get_post_meta( $post_id, 'themes_fields_wp_url', true );
-					$results[ $index ]['down_url']    = get_post_meta( $post_id, 'themes_fields_down_url', true );
-					$results[ $index ]['github_url']  = get_post_meta( $post_id, 'themes_fields_github_url', true );
-					$results[ $index ]['logo']        = get_post_meta( $post_id, 'themes_fields_logo', true );
-					$results[ $index ]['description'] = get_post_meta( $post_id, 'themes_fields_description', true );
 				}
 
 				if ( ! empty( $results[ $index ]['images'] ) ) {
