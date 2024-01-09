@@ -32,18 +32,22 @@ function ln_core_scripts() {
 	}
 
 	wp_deregister_script( 'comment-reply' );
-	wp_deregister_script( 'akismet-frontend' );
 }
 
 add_action( 'wp_enqueue_scripts', 'ln_core_scripts', 20 );
 
-add_action( 'init', 'remove_akismet_frontend_js', 99 );
-
-function remove_akismet_frontend_js() {
+/**
+ * Remove Akismet Frontend js.
+ *
+ * @return void
+ */
+function ln_remove_akismet_frontend_js() {
 	remove_action( 'comment_form', array( 'Akismet', 'load_form_js' ) );
-	remove_action( 'do_shortcode_tag', array( 'Akismet', 'load_form_js_via_filter' ) );
 	remove_action( 'comment_form', array( 'Akismet', 'output_custom_form_fields' ) );
+	remove_action( 'do_shortcode_tag', array( 'Akismet', 'load_form_js_via_filter' ) );
 }
+
+add_action( 'init', 'ln_remove_akismet_frontend_js', 99 );
 
 /**
  * Enqueue admin style.
