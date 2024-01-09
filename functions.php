@@ -37,6 +37,14 @@ function ln_core_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'ln_core_scripts', 20 );
 
+add_action( 'init', 'remove_akismet_frontend_js', 99 );
+
+function remove_akismet_frontend_js() {
+	remove_action( 'comment_form', array( 'Akismet', 'load_form_js' ) );
+	remove_action( 'do_shortcode_tag', array( 'Akismet', 'load_form_js_via_filter' ) );
+	remove_action( 'comment_form', array( 'Akismet', 'output_custom_form_fields' ) );
+}
+
 /**
  * Enqueue admin style.
  *
