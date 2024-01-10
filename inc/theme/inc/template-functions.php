@@ -48,7 +48,7 @@ var wpcf7 = {"api":{"root":"' . $rest_url . '","namespace":"contact-form-7\/v1"}
 !function(){var s,o=document.body,e="className",a="customize-support",c=RegExp("(^|\\s+)(no-)?"+a+"(\\s+|$)");s=!0,o[e]=o[e].replace(c," "),o[e]+=(window.postMessage&&s?" ":" no-")+a}();</script>
 ';
 
-	echo $cf7;
+	//echo $cf7;
 }
 
 add_action( 'wp_footer', 'ln_insert_scripts' );
