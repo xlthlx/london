@@ -29,26 +29,6 @@ function ln_insert_scripts() {
 	$script = ln_get_file_content( $file );
 
 	echo '<script type="text/javascript">' . $script . '</script>';
-
-	$dir           = ABSPATH . 'wp-content/plugins/contact-form-7/';
-	$first_script  = ln_get_file_content( $dir . '/includes/swv/js/index.js' );
-	$second_script = ln_get_file_content( $dir . '/includes/js/index.js' );
-	$rest_url      = str_replace( '/', '\\/', ( esc_url( get_rest_url() ) ) );
-
-	$cf7 = '
-<script id="cf7">' . $first_script;
-
-	$cf7 .= '
-/* <![CDATA[ */
-var wpcf7 = {"api":{"root":"' . $rest_url . '","namespace":"contact-form-7\/v1"}};
-/* ]]> */
-';
-	$cf7 .= $second_script;
-	$cf7 .= '
-!function(){var s,o=document.body,e="className",a="customize-support",c=RegExp("(^|\\s+)(no-)?"+a+"(\\s+|$)");s=!0,o[e]=o[e].replace(c," "),o[e]+=(window.postMessage&&s?" ":" no-")+a}();</script>
-';
-
-	//echo $cf7;
 }
 
 add_action( 'wp_footer', 'ln_insert_scripts' );
