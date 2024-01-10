@@ -12,8 +12,6 @@
  */
 function ln_remove_filters() {
 	add_filter( 'login_display_language_dropdown', '__return_false' );
-	add_filter( 'wpcf7_load_js', '__return_false' );
-	add_filter( 'wpcf7_load_css', '__return_false' );
 	add_filter( 'enable_post_by_email_configuration', '__return_false' );
 }
 
@@ -32,6 +30,8 @@ function ln_core_scripts() {
 	}
 
 	wp_deregister_script( 'comment-reply' );
+	wp_deregister_script( 'contact-form-7' );
+	wp_dequeue_style( 'contact-form-7' );
 }
 
 add_action( 'wp_enqueue_scripts', 'ln_core_scripts', 20 );
