@@ -32,6 +32,8 @@ function ln_core_scripts() {
 	wp_deregister_script( 'comment-reply' );
 	wp_deregister_script( 'contact-form-7' );
 	wp_dequeue_style( 'contact-form-7' );
+	wp_dequeue_style( 'wp-block-library' );
+	wp_dequeue_style('classic-theme-styles');
 }
 
 add_action( 'wp_enqueue_scripts', 'ln_core_scripts', 20 );
