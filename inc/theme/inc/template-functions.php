@@ -34,21 +34,6 @@ function ln_insert_scripts() {
 add_action( 'wp_footer', 'ln_insert_scripts' );
 
 /**
- * Send 404 to Plausible.
- *
- * @return void
- */
-function ln_404_plausible() {
-	if ( is_404() ) {
-		?>
-		<script>plausible("404", {props: {path: document.location.pathname}});</script>
-		<?php
-	}
-}
-
-add_action( 'wp_head', 'ln_404_plausible' );
-
-/**
  * Removes WP Logo and comments in the admin bar.
  *
  * @return void
