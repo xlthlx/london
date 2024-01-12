@@ -14,17 +14,17 @@
   },
   "scripts": {
     "minify:js": "uglifyjs vendor/twbs/bootstrap/dist/js/bootstrap.min.js src/js/scripts.js --compress --mangle --warn --output assets/js/main.min.js && uglifyjs src/js/admin/admin.js --compress --mangle --output assets/js/admin/admin.min.js && uglifyjs src/js/admin/login.js vendor/twbs/bootstrap/dist/js/bootstrap.min.js --compress --mangle --output assets/js/admin/login.min.js",
-    "minify:css": "cleancss -o assets/css/orig.css vendor/twbs/bootstrap/dist/css/bootstrap.min.css src/css/contact-form-7.css src/css/style.css src/css/block-library.css && cleancss -o assets/css/admin/admin.min.css src/css/admin/admin.css && cleancss -o assets/css/admin/login.min.css vendor/twbs/bootstrap/dist/css/bootstrap.min.css src/css/style.css src/css/admin/login.css && purifycss assets/css/orig.css assets/css/*.html -o assets/css/main.min.css -m",
+    "minify:css": "cleancss -o assets/css/main.min.css vendor/twbs/bootstrap/dist/css/bootstrap.min.css src/css/contact-form-7.css src/css/style.css src/css/block-library.css && cleancss -o assets/css/admin/admin.min.css src/css/admin/admin.css && cleancss -o assets/css/admin/login.min.css vendor/twbs/bootstrap/dist/css/bootstrap.min.css src/css/style.css src/css/admin/login.css && purgecss --css assets/css/main.min.css --content assets/css/*.html -o assets/css/main.min.css",
     "watch:css": "onchange 'src/css/*.css' -- npm run minify:css",
     "watch:js": "onchange 'src/js/*.js' -- npm run minify:js",
     "watch": "run-p watch:*",
     "build": "npm run minify:css && npm run minify:js"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^5.0.0",
     "clean-css-cli": "^5.6.3",
     "npm-run-all": "^4.1.5",
     "onchange": "^7.1.0",
-    "purify-css": "^1.2.5",
     "uglify-js": "^3.17.2"
   }
 }
