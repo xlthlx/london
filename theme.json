@@ -32,11 +32,6 @@
 					"slug": "background"
 				},
 				{
-					"color": "#151618",
-					"name": "Black",
-					"slug": "black"
-				},
-				{
 					"color": "#484848",
 					"name": "Dark Grey",
 					"slug": "dark-grey"

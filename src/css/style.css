@@ -57,7 +57,7 @@ h2 {
 
 .navbar {
     border-bottom: 1px solid var(--wp--preset--color--dark-grey);
-    background-color: var(--wp--preset--color--black);
+    background-color: var(--wp--preset--color--background);
     border-radius: 0 !important;
     box-shadow: none !important;
 }
