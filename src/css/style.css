@@ -20,7 +20,7 @@ body.admin-bar nav.fixed-top {
 }
 
 a {
-    color: var(--wp--preset--color--club) !important;
+    color: var(--wp--preset--color--links) !important;
 }
 
 b, strong {
@@ -45,7 +45,7 @@ h1 a {
 }
 
 h1 a:hover {
-    color: var(--wp--preset--color--club) !important;
+    color: var(--wp--preset--color--links) !important;
     text-decoration: underline;
 }
 
