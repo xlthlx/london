@@ -265,14 +265,10 @@ hr {
 .kb-club a {
     text-decoration: none;
     color: var(--wp--preset--color--background) !important;
-    font-weight: bold !important;
     font-family: sans-serif;
     padding: .25rem 0;
     transition: .4s;
-}
-
-.kb-club a:hover span {
-    background: var(--wp--preset--color--foreground) !important;
+    border: 1px solid var(--wp--preset--color--white);
 }
 
 .kb-club-bg,
@@ -281,7 +277,7 @@ hr {
 }
 
 .kb-club-no-bg {
-    background: var(--wp--preset--color--white);
+    color: var(--wp--preset--color--white);
 }
 
 .kb-club-bg {
