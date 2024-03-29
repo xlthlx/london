@@ -365,3 +365,7 @@ body .is-layout-flex {
         padding-left: 0 !important;
     }
 }
+
+.wp-block-image figcaption {
+    margin: 10px;
+}
