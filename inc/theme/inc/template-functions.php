@@ -28,7 +28,7 @@ function ln_insert_scripts() {
 	$file   = get_template_directory() . '/assets/js/main.min.js';
 	$script = ln_get_file_content( $file );
 
-	echo '<script type="text/javascript">' . $script . '</script>';
+	echo '<script id="all-scripts-inline" type="text/javascript">' . $script . '</script>';
 }
 
 add_action( 'wp_footer', 'ln_insert_scripts' );

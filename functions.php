@@ -18,29 +18,6 @@ function ln_remove_filters() {
 add_action( 'init', 'ln_remove_filters' );
 
 /**
- *  Enqueue core scripts and core styles.
- *
- * @return void
- */
-function ln_core_scripts() {
-	// Scripts.
-	if ( 'http://localhost:1030' !== home_url() && ! is_admin() ) {
-		wp_deregister_script( 'jquery' );
-		wp_deregister_script( 'wp-polyfill' );
-	}
-
-	wp_deregister_script( 'comment-reply' );
-	wp_deregister_script( 'contact-form-7' );
-	wp_dequeue_style( 'contact-form-7' );
-	wp_dequeue_style('classic-theme-styles');
-	wp_dequeue_style( 'wp-block-library' );
-	//wp_dequeue_style( 'wp-block-library-theme' );
-	//wp_dequeue_style( 'global-styles' );
-}
-
-add_action( 'wp_enqueue_scripts', 'ln_core_scripts', 20 );
-
-/**
  * Remove Akismet Frontend js.
  *
  * @return void
