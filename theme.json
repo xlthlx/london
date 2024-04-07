@@ -74,8 +74,9 @@
 					"fontFace": [
 						{
 							"fontFamily": "JetBrains Mono",
-							"fontWeight": "400",
-							"fontStyle": "normal",
+							"fontStyle": "auto",
+							"fontWeight": "100 900",
+							"fontDisplay": "swap",
 							"src": [
 								"file:./assets/fonts/JetBrainsMono-VariableFont_wght.ttf"
 							]
