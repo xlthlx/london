@@ -23,14 +23,14 @@ a {
     color: var(--wp--preset--color--foreground) !important;
 }
 
-#content a {
+#content a:not(.prev, .next) {
     color: var(--wp--preset--color--foreground) !important;
     box-shadow: inset 0 -0.3em 0 0 var(--wp--preset--color--links);
     text-decoration: none;
     transition: box-shadow .2s,color .2s;
 }
 
-#content a:hover {
+#content a:not(.prev, .next):hover {
     color: var(--wp--preset--color--foreground) !important;
     box-shadow: inset 0 -1.15em 0 0 var(--wp--preset--color--links);
     text-decoration: none;
