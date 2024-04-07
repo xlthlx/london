@@ -38,14 +38,14 @@ global $n, $job; ?>
 	<?php if ( 0 !== $n % 2 ) { ?>
 
 	<div class="wp-block-media-text is-stacked-on-mobile">
-		<?php if ( ! empty( $job['logo'] ) ) { ?>
+		<?php if ( ! empty( $job['logo'] ) && empty( $job['images'] ) ) { ?>
 			<figure class="wp-block-media-text__media">
 				<img decoding="async" width="300" height="225"
 					 src="<?php echo $job['logo']; ?>"
 					 alt="<?php echo $job['title']; ?>" class="size-full"/>
 			</figure>
 		<?php } ?>
-		<?php if ( ! empty( $job['images'] ) ) { ?>
+		<?php if ( ! empty( $job['logo'] )&& ! empty( $job['images'] ) ) { ?>
 			<figure class="wp-block-media-text__media">
 				<img data-ref="modal<?php echo $job['item_id']; ?>" data-id="<?php echo $job['ID']; ?>" decoding="async" width="300" height="225" src="<?php echo $job['first_image']; ?>"
 					 alt="<?php echo $job['first_image_alt']; ?>" class="size-full cursor"/>
