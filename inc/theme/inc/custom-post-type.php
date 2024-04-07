@@ -38,6 +38,7 @@ function ln_register_post_type() {
 				'order'         => array(
 					'title'      => 'Order',
 					'post_field' => 'menu_order',
+					'default'    => 'DESC',
 				),
 				'last_modified' => array(
 					'title'       => 'Last Modified',
