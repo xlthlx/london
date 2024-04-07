@@ -48,7 +48,7 @@ global $n, $job; ?>
 			</h5>
 			<?php echo $job['content']; ?>
 		</div>
-		<?php if ( ! empty( $job['logo'] ) ) { ?>
+		<?php if ( ! empty( $job['logo'] ) && empty( $job['images'] ) ) { ?>
 			<figure class="wp-block-media-text__media">
 				<img decoding="async" width="300" height="225"
 					 src="<?php echo $job['logo']; ?>"

@@ -83,7 +83,7 @@ global $n, $job; ?>
 			<?php echo $job['content']; ?>
 			<p class="has-grey-color has-text-color has-link-color"><em><?php echo $job['tech']; ?></em></p>
 		</div>
-		<?php if ( ! empty( $job['logo'] ) ) { ?>
+		<?php if ( ! empty( $job['logo'] ) && empty( $job['images'] ) ) { ?>
 			<figure class="wp-block-media-text__media">
 				<img decoding="async" width="300" height="225"
 					 src="<?php echo $job['logo']; ?>"
