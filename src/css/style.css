@@ -27,7 +27,7 @@ a {
     color: var(--wp--preset--color--foreground) !important;
     box-shadow: inset 0 -0.3em 0 0 var(--wp--preset--color--links);
     text-decoration: none;
-    transition: box-shadow .2s,color .2s;
+    transition: box-shadow .2s, color .2s;
 }
 
 #content a:not(.prev, .next):hover {
@@ -357,7 +357,7 @@ body .is-layout-flex {
         padding-bottom: var(--wp--preset--spacing--50);
     }
 
-    .wp-block-media-text__media img{
+    .wp-block-media-text__media img {
         padding-bottom: var(--wp--preset--spacing--50);
     }
 
@@ -368,4 +368,8 @@ body .is-layout-flex {
 
 .wp-block-image figcaption {
     margin: 10px;
+}
+
+.modal-dialog {
+    margin-top: 5%;
 }
