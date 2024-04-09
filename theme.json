@@ -22,12 +22,12 @@
 			"link": true,
 			"palette": [
 				{
-					"color": "#E5E5E5",
+					"color": "#ffffff",
 					"name": "Foreground",
 					"slug": "foreground"
 				},
 				{
-					"color": "#0A0A11",
+					"color": "#191919",
 					"name": "Background",
 					"slug": "background"
 				},
