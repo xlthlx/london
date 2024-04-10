@@ -18,17 +18,6 @@ function ln_remove_filters() {
 add_action( 'init', 'ln_remove_filters' );
 
 /**
- * Lazy loading images.
- *
- * @return string
- */
-function ln_lazy_load_images() {
-	return 'img';
-}
-
-add_filter( 'wp_lazy_loading_enabled', 'ln_lazy_load_images' );
-
-/**
  *  Dequeue core styles.
  *
  * @return void
