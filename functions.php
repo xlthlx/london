@@ -18,6 +18,20 @@ function ln_remove_filters() {
 add_action( 'init', 'ln_remove_filters' );
 
 /**
+ *  Dequeue core styles.
+ *
+ * @return void
+ */
+function ln_core_styles() {
+
+	wp_dequeue_style( 'classic-theme-styles' );
+	wp_dequeue_style( 'wp-block-library' );
+}
+
+add_action( 'wp_enqueue_scripts', 'ln_core_styles', 20 );
+
+
+/**
  * Remove Akismet Frontend js.
  *
  * @return void

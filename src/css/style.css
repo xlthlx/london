@@ -368,6 +368,7 @@ body .is-layout-flex {
 
 .wp-block-image figcaption {
     margin: 10px;
+    color: #939292 !important;
 }
 
 .modal-dialog {
