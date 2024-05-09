@@ -8,32 +8,19 @@
 global $n, $job; ?>
 	<?php if ( empty( $job['about'] ) ) { ?>
 		<div class="col-md-12 mt-3 mb-4">
-			<h3 class="mb-4"><?php echo $job['title']; ?></h3>
-			<hr class="mb-4 mt-0">
+            <h3 class="py-3"><?php echo esc_attr( $job['title'] ); ?></h3>
+			<hr class="mb-4 mt-4">
 		</div>
 	<?php } ?>
-	<?php if ( ! empty( $job['about'] ) ) { ?>
-		<div class="accordion bg-black col-md-12 pb-2 mb-4"
-			 id="accordion<?php echo $job['item_id']; ?>">
-			<div class="accordion-item border-0 no-border-radius bg-black">
-				<div class="accordion-header border-0 no-border-radius bg-black mb-3"
-					 id="accordion<?php echo $job['item_id']; ?>-heading">
-					<h3 class="accordion-button collapsed bg-black h3 border-0 no-border-radius mb-0 px-0 cursor"
-						data-bs-toggle="collapse" data-id="<?php echo $job['ID']; ?>"
-						data-bs-target="#accordion-<?php echo $job['item_slug']; ?>" aria-expanded="false"
-						aria-controls="accordion-<?php echo $job['item_slug']; ?>">
-						<?php echo $job['title']; ?>
-					</h3>
-				</div>
-				<div id="accordion-<?php echo $job['item_slug']; ?>" class="accordion-collapse collapse"
-					 aria-labelledby="accordion<?php echo $job['item_id']; ?>"
-					 data-bs-parent="#accordion<?php echo $job['item_id']; ?>">
-					<p class="dark-grey-text pt-5">About the company</p>
-					<?php echo apply_filters( 'the_content', get_post_meta( $job['ID'], 'job_fields_about', true ) ); ?>
-				</div>
-			</div>
-			<hr class="mb-4 mt-0">
-		</div>
+	<?php if ( ! empty( $job['about'] ) ) {
+		$about = wp_strip_all_tags( get_post_meta( $job['ID'], 'job_fields_about', true ) );
+        ?>
+        <div class="col-md-12 mt-3 mb-4">
+            <h3 class="py-3">
+                <abbr title="<?php echo esc_html( $about ); ?>"><?php echo esc_attr( $job['title'] ); ?></abbr>
+            </h3>
+            <hr class="mb-4 mt-4">
+        </div>
 	<?php } ?>
 	<?php if ( 0 !== $n % 2 ) { ?>
 

@@ -21,7 +21,7 @@ if ( empty( $images[ $actual_id ] ) ) {
 	$images[ $actual_id ] = get_post_meta( $actual_id, 'work_fields_images', true );
 }
 ?>
-<div class="modal-dialog modal-lg border-0 rounded-0">
+<div class="modal-dialog modal-dialog-centered modal-lg border-0 rounded-0">
 	<div class="modal-content border-0 rounded-0">
 		<div class="modal-header border-0 rounded-0">
 			<div id="number" class="number-text">1/<?php echo count( $images[ $actual_id ] ); ?></div>

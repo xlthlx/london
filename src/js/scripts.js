@@ -90,31 +90,6 @@ document.getElementById("content").addEventListener("click", function (event) {
     }
 });
 
-// Show content.
-let targetData = document.querySelectorAll("[data-show]");
-targetData.forEach(setDataClick);
-
-function setDataClick(item, index, arr) {
-    item.addEventListener('click', function () {
-
-        let strId = arr[index].dataset.bsTarget;
-        let aboutId = strId.replace("#", "");
-
-        if (document.getElementById(aboutId).innerHTML.trim() === '') {
-            let ID = arr[index].dataset.id;
-            let xhttp = new XMLHttpRequest();
-
-            xhttp.onreadystatechange = function () {
-                if (this.readyState === 4 && this.status === 200) {
-                    document.getElementById(aboutId).innerHTML = this.responseText;
-                }
-            };
-            xhttp.open("GET", "/wp-content/themes/london/parts/show.php?id=" + ID, true);
-            xhttp.send();
-        }
-    });
-}
-
 // data-bs-toggle="modal" data-bs-target="#containerModal"
 // Opens in modal links with the specified target and toggle.
 let containerModal = document.getElementById('containerModal');
