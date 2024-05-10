@@ -102,8 +102,8 @@ if (typeof (containerModal) !== 'undefined' && containerModal !== null) {
         let link_alt = link.getAttribute('title');
         let pdf_src = link_source.includes(".pdf");
 
-        let modalBodyImg = containerModal.querySelector('#inlineFrameImg');
-        let modalBodyIframe = containerModal.querySelector('#inlineFramePdf');
+        let modalBodyImg = containerModal.querySelector('#inline-frame--img');
+        let modalBodyIframe = containerModal.querySelector('#inline-frame--pdf');
         if (pdf_src === true) {
             modalBodyIframe.src = link_source;
             modalBodyIframe.title = link_alt;

@@ -43,9 +43,9 @@
 						data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
-				<img id="inlineFrameImg" src="" alt=""/>
+				<img id="inline-frame--img" src="" alt=""/>
 				<?php // @codingStandardsIgnoreStart ?>
-                <iframe id="inlineFramePdf" src=""></iframe>
+                <iframe id="inline-frame--pdf" src=""></iframe>
 				<?php // @codingStandardsIgnoreEnd ?>
 			</div>
 		</div>
