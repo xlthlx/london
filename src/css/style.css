@@ -254,24 +254,24 @@ hr {
     color: var(--wp--preset--color--background) !important;
     font-family: sans-serif;
     display: inline-block;
+    padding: 6px 0;
     transition: .4s;
     border: 1px solid var(--wp--preset--color--foreground);
 }
 
 .kb-club-bg,
 .kb-club-no-bg {
-    padding: 6px 13px 2px 13px;
+    padding: 10px 15px 9px 15px;
+    display: inline;
 }
 
 .kb-club-no-bg {
     color: var(--wp--preset--color--foreground);
-    display: inline-block;
 }
 
 .kb-club-bg {
     background: var(--wp--preset--color--club);
     color: var(--wp--preset--color--background);
-    display: inline-block;
 }
 
 code {

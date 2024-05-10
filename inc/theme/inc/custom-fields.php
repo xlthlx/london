@@ -63,11 +63,7 @@ function ln_register_job_fields() {
 		array(
 			'name'    => 'About the company',
 			'id'      => 'job_fields_about',
-			'type'    => 'wysiwyg',
-			'options' => array(
-				'textarea_rows' => 10,
-				'media_buttons' => false,
-			),
+			'type'    => 'textarea',
 		) 
 	);
 

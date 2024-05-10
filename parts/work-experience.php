@@ -18,7 +18,7 @@ global $n, $job; ?>
         <div class="col-md-12 mt-3 mb-4">
             <details>
                 <summary class="h3 py-3"><?php echo esc_attr( $job['title'] ); ?></summary>
-                <p><?php echo esc_html( $about ); ?></p>
+                <p class="has-grey-color"><?php echo esc_html( $about ); ?></p>
             </details>
             <hr class="mb-4 mt-4">
         </div>
