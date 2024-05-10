@@ -16,9 +16,10 @@ global $n, $job; ?>
 		$about = wp_strip_all_tags( get_post_meta( $job['ID'], 'job_fields_about', true ) );
         ?>
         <div class="col-md-12 mt-3 mb-4">
-            <h3 class="py-3">
-                <abbr title="<?php echo esc_html( $about ); ?>"><?php echo esc_attr( $job['title'] ); ?></abbr>
-            </h3>
+            <details>
+                <summary class="h3 py-3"><?php echo esc_attr( $job['title'] ); ?></summary>
+                <p><?php echo esc_html( $about ); ?></p>
+            </details>
             <hr class="mb-4 mt-4">
         </div>
 	<?php } ?>
