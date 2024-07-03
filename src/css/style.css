@@ -97,6 +97,11 @@ h2 {
     color: var(--wp--preset--color--foreground);
 }
 
+.navbar-toggler {
+    border-radius: 0!important;
+    border: 0!important;
+}
+
 .footer-copyright {
     border-top: 1px solid var(--wp--preset--color--dark-grey);
     background-color: var(--wp--preset--color--background) !important;

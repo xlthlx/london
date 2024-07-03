@@ -33,7 +33,7 @@
 <a class="visually-hidden" href="#content">Skip to main content</a>
 <header>
 	<nav class="navbar navbar-expand-md navbar-dark py-3">
-		<div class="container">
+		<div class="container d-flex flex-row-reverse">
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
 					aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
