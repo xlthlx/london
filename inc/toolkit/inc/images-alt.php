@@ -79,7 +79,7 @@ add_filter( 'the_content', 'lt_add_image_alt', 9999 );
 /**
  * Sets alt attribute for post thumbnails.
  *
- * @param array $attr Array of attribute values for the image markup, keyed by attribute name.
+ * @param array   $attr Array of attribute values for the image markup, keyed by attribute name.
  * @param WP_Post $attachment Image attachment post.
  *
  * @return array The attributes filtered.

@@ -50,7 +50,7 @@ add_action( 'init', 'ln_remove_akismet_frontend_js', 99 );
  * @return void
  */
 function ln_admin_theme_style() {
-	wp_enqueue_style( 'admin-style', get_template_directory_uri() . '/assets/css/admin/admin.min.css', [], filemtime( get_template_directory() . '/assets/css/admin/admin.min.css' ) );
+	wp_enqueue_style( 'admin-style', get_template_directory_uri() . '/assets/css/admin/admin.min.css', array(), filemtime( get_template_directory() . '/assets/css/admin/admin.min.css' ) );
 }
 
 add_action( 'admin_enqueue_scripts', 'ln_admin_theme_style' );

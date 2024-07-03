@@ -8,20 +8,21 @@
 global $n, $job; ?>
 	<?php if ( empty( $job['about'] ) ) { ?>
 		<div class="col-md-12 mt-3 mb-4">
-            <h3 class="py-3"><?php echo esc_attr( $job['title'] ); ?></h3>
+			<h3 class="py-3"><?php echo esc_attr( $job['title'] ); ?></h3>
 			<hr class="mb-4 mt-4">
 		</div>
 	<?php } ?>
-	<?php if ( ! empty( $job['about'] ) ) {
+	<?php
+	if ( ! empty( $job['about'] ) ) {
 		$about = wp_strip_all_tags( get_post_meta( $job['ID'], 'job_fields_about', true ) );
-        ?>
-        <div class="col-md-12 mt-3 mb-4">
-            <details>
-                <summary class="h3 py-3"><?php echo esc_attr( $job['title'] ); ?></summary>
-                <p class="has-grey-color"><?php echo esc_html( $about ); ?></p>
-            </details>
-            <hr class="mb-4 mt-4">
-        </div>
+		?>
+		<div class="col-md-12 mt-3 mb-4">
+			<details>
+				<summary class="h3 py-3"><?php echo esc_attr( $job['title'] ); ?></summary>
+				<p class="has-grey-color"><?php echo esc_html( $about ); ?></p>
+			</details>
+			<hr class="mb-4 mt-4">
+		</div>
 	<?php } ?>
 	<?php if ( 0 !== $n % 2 ) { ?>
 
@@ -33,7 +34,7 @@ global $n, $job; ?>
 					 alt="<?php echo $job['title']; ?>" class="size-full"/>
 			</figure>
 		<?php } ?>
-		<?php if ( ! empty( $job['logo'] )&& ! empty( $job['images'] ) ) { ?>
+		<?php if ( ! empty( $job['logo'] ) && ! empty( $job['images'] ) ) { ?>
 			<figure class="wp-block-media-text__media">
 				<img data-ref="modal<?php echo $job['item_id']; ?>" data-id="<?php echo $job['ID']; ?>" decoding="async" width="300" height="225" src="<?php echo $job['logo']; ?>"
 					 alt="<?php echo $job['title']; ?>" class="size-full cursor"/>
@@ -78,7 +79,7 @@ global $n, $job; ?>
 					 alt="<?php echo $job['title']; ?>" class="size-full"/>
 			</figure>
 		<?php } ?>
-		<?php if ( ! empty( $job['logo'] )&& ! empty( $job['images'] ) ) { ?>
+		<?php if ( ! empty( $job['logo'] ) && ! empty( $job['images'] ) ) { ?>
 			<figure class="wp-block-media-text__media">
 				<img data-ref="modal<?php echo $job['item_id']; ?>" data-id="<?php echo $job['ID']; ?>" decoding="async" width="300" height="225" src="<?php echo $job['logo']; ?>"
 					 alt="<?php echo $job['title']; ?>" class="size-full cursor"/>
