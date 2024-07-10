@@ -18,7 +18,7 @@
 			<div class="col-md-12 mb-4">
 				<p class="text-center">The hamsters who run this site have not found what you were looking for.</p>
 				<p>
-					<img class="img-fluid rounded z-depth-2 mx-auto d-block" src="<?php echo get_template_directory_uri(); ?>/assets/img/404.gif" alt="404"/>
+					<img class="img-fluid rounded z-depth-2 mx-auto d-block" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/404.gif" alt="404"/>
 				</p>
 			</div>
 		</div>

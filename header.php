@@ -16,7 +16,7 @@
 	<link rel="author" href="<?php echo esc_url( home_url( '/' ) ); ?>humans.txt"/>
 	<meta property="og:title" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?> | <?php echo esc_attr( get_bloginfo( 'description' ) ); ?>">
 	<meta property="og:type" content="page">
-	<meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/assets/img/piccioni.london.jpg">
+	<meta property="og:image" content="<?php echo esc_url( get_template_directory_uri )(); ?>/assets/img/piccioni.london.jpg">
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="900">
 	<meta property="og:image:alt" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>, <?php echo esc_attr( get_bloginfo( 'description' ) ); ?>">
@@ -26,7 +26,7 @@
 	<meta property="og:site_name" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
 	<meta property="article:author" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:image" content="<?php echo get_template_directory_uri(); ?>/assets/img/piccioni.london.jpg">
+	<meta name="twitter:image" content="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/img/piccioni.london.jpg">
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
