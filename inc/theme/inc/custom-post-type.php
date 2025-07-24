@@ -72,9 +72,10 @@ function ln_register_post_type() {
 		'job_type',
 		'job',
 		array(
-			'show_ui'  => true,
-			'meta_box' => 'dropdown',
-			'required' => true,
+			'show_ui'            => true,
+			'meta_box'           => 'dropdown',
+			'required'           => true,
+			'publicly_queryable' => false,
 		)
 	);
 
@@ -82,9 +83,10 @@ function ln_register_post_type() {
 		'job_role',
 		'job',
 		array(
-			'show_ui'  => true,
-			'meta_box' => 'dropdown',
-			'required' => true,
+			'show_ui'            => true,
+			'meta_box'           => 'dropdown',
+			'required'           => true,
+			'publicly_queryable' => false,
 		)
 	);
 
