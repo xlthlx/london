@@ -5,25 +5,46 @@
  * @package London
  */
 
-// This removes the authors part of the sitemap
-add_filter( 'wp_sitemaps_add_provider', function ($provider, $name) {
+/**
+ * Remove users from wp-sitemap.xml.
+ *
+ * @param string $provider Provider.
+ * @param string $name Provider name.
+ *
+ * @return false|string
+ */
+function ln_remove_users_from_wp_sitemap( $provider, $name ) {
 	return ( $name === 'users' ) ? false : $provider;
-}, 10, 2);
+}
 
+add_filter( 'wp_sitemaps_add_provider', 'ln_remove_users_from_wp_sitemap', 10, 2 );
 
-// Here's how we can remove categories, post tags and custom taxonomies
-add_filter(
-	'wp_sitemaps_taxonomies',
-	static function( $taxonomies ) {
-		unset( $taxonomies['job_type'], $taxonomies['job_role'] );
+/**
+ * Remove taxonomies from wp-sitemap.xml.
+ *
+ * @param array $taxonomies Taxonomies.
+ *
+ * @return array
+ */
+function ln_remove_taxonomies_from_wp_sitemap( $taxonomies ): array {
+	unset( $taxonomies['job_type'], $taxonomies['job_role'] );
 
-		return $taxonomies;
-	}
-);
+	return $taxonomies;
+}
 
-// Here's how we can remove post types
-function remove_post_type_from_wp_sitemap( $post_types ) {
+add_filter( 'wp_sitemaps_taxonomies', 'ln_remove_taxonomies_from_wp_sitemap' );
+
+/**
+ * Remove job post type from wp-sitemap.xml.
+ *
+ * @param array $post_types Post types.
+ *
+ * @return array
+ */
+function ln_remove_job_from_wp_sitemap( $post_types ): array {
 	unset( $post_types['job'] );
+
 	return $post_types;
 }
-add_filter( 'wp_sitemaps_post_types', 'remove_post_type_from_wp_sitemap' );
+
+add_filter( 'wp_sitemaps_post_types', 'ln_remove_job_from_wp_sitemap' );
