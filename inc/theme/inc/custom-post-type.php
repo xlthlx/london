@@ -20,7 +20,7 @@ function ln_register_post_type() {
 			'menu_icon'           => 'dashicons-hammer',
 			'capability_type'     => 'page',
 			'supports'            => array( 'title', 'editor', 'revisions', 'page-attributes' ),
-			'publicly_queryable'  => true,
+			'publicly_queryable'  => false,
 			'admin_cols'          => array(
 				'title'         => array(
 					'title' => 'Company',
