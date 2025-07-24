@@ -56,3 +56,14 @@ function ln_document_title_separator() {
 }
 
 add_filter( 'document_title_separator', 'ln_document_title_separator' );
+
+/**
+ * Remove Akismet inline style.
+ *
+ * @return void
+ */
+function ln_remove_akismet_style() {
+	wp_styles()->add_data( 'akismet-widget-style', 'after', '' );
+}
+
+add_action( 'wp_print_styles', 'ln_remove_akismet_style' );
