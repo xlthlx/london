@@ -14,7 +14,7 @@
  * @return false|string
  */
 function ln_remove_users_from_wp_sitemap( $provider, $name ) {
-	return ( $name === 'users' ) ? false : $provider;
+	return ( 'users' === $name ) ? false : $provider;
 }
 
 add_filter( 'wp_sitemaps_add_provider', 'ln_remove_users_from_wp_sitemap', 10, 2 );
@@ -26,7 +26,7 @@ add_filter( 'wp_sitemaps_add_provider', 'ln_remove_users_from_wp_sitemap', 10, 2
  *
  * @return array
  */
-function ln_remove_taxonomies_from_wp_sitemap( $taxonomies ): array {
+function ln_remove_taxonomies_from_wp_sitemap( $taxonomies ) {
 	unset( $taxonomies['job_type'], $taxonomies['job_role'] );
 
 	return $taxonomies;
@@ -41,7 +41,7 @@ add_filter( 'wp_sitemaps_taxonomies', 'ln_remove_taxonomies_from_wp_sitemap' );
  *
  * @return array
  */
-function ln_remove_job_from_wp_sitemap( $post_types ): array {
+function ln_remove_job_from_wp_sitemap( $post_types ) {
 	unset( $post_types['job'] );
 
 	return $post_types;
